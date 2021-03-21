@@ -15,6 +15,10 @@
 		9CAEA16B2605547D004EEF75 /* FaceStickerMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA16A2605547D004EEF75 /* FaceStickerMakerTests.swift */; };
 		9CAEA1762605547D004EEF75 /* FaceStickerMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1752605547D004EEF75 /* FaceStickerMakerUITests.swift */; };
 		9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA19D2605E448004EEF75 /* StickersViewController.swift */; };
+		9CAEA1BC26074D29004EEF75 /* RoutingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1BB26074D29004EEF75 /* RoutingTransition.swift */; };
+		9CAEA1C126074DC0004EEF75 /* RoutingModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */; };
+		9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1C526075FE8004EEF75 /* Animator.swift */; };
+		9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1CB2607FA79004EEF75 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		9CAEA1752605547D004EEF75 /* FaceStickerMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceStickerMakerUITests.swift; sourceTree = "<group>"; };
 		9CAEA1772605547D004EEF75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CAEA19D2605E448004EEF75 /* StickersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewController.swift; sourceTree = "<group>"; };
+		9CAEA1BB26074D29004EEF75 /* RoutingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingTransition.swift; sourceTree = "<group>"; };
+		9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingModalTransition.swift; sourceTree = "<group>"; };
+		9CAEA1C526075FE8004EEF75 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		9CAEA1CB2607FA79004EEF75 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9CAEA1B226074B17004EEF75 /* Routing */,
 				9CAEA19C2605E41C004EEF75 /* ViewControllers */,
 				9CAEA1532605547A004EEF75 /* AppDelegate.swift */,
 				9CAEA1552605547A004EEF75 /* SceneDelegate.swift */,
@@ -134,6 +143,25 @@
 				9CAEA19D2605E448004EEF75 /* StickersViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9CAEA1B226074B17004EEF75 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA1CA260761CF004EEF75 /* Transitions */,
+				9CAEA1C526075FE8004EEF75 /* Animator.swift */,
+				9CAEA1CB2607FA79004EEF75 /* Router.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		9CAEA1CA260761CF004EEF75 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA1BB26074D29004EEF75 /* RoutingTransition.swift */,
+				9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,10 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
+				9CAEA1BC26074D29004EEF75 /* RoutingTransition.swift in Sources */,
+				9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */,
+				9CAEA1C126074DC0004EEF75 /* RoutingModalTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
