@@ -14,6 +14,7 @@
 		9CAEA1602605547D004EEF75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CAEA15E2605547D004EEF75 /* LaunchScreen.storyboard */; };
 		9CAEA16B2605547D004EEF75 /* FaceStickerMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA16A2605547D004EEF75 /* FaceStickerMakerTests.swift */; };
 		9CAEA1762605547D004EEF75 /* FaceStickerMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1752605547D004EEF75 /* FaceStickerMakerUITests.swift */; };
+		9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA19D2605E448004EEF75 /* StickersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		9CAEA1712605547D004EEF75 /* FaceStickerMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceStickerMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEA1752605547D004EEF75 /* FaceStickerMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceStickerMakerUITests.swift; sourceTree = "<group>"; };
 		9CAEA1772605547D004EEF75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CAEA19D2605E448004EEF75 /* StickersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9CAEA19C2605E41C004EEF75 /* ViewControllers */,
 				9CAEA1532605547A004EEF75 /* AppDelegate.swift */,
 				9CAEA1552605547A004EEF75 /* SceneDelegate.swift */,
 				9CAEA1572605547A004EEF75 /* ViewController.swift */,
@@ -123,6 +126,14 @@
 				9CAEA1772605547D004EEF75 /* Info.plist */,
 			);
 			path = FaceStickerMakerUITests;
+			sourceTree = "<group>";
+		};
+		9CAEA19C2605E41C004EEF75 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA19D2605E448004EEF75 /* StickersViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 			files = (
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
+				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
