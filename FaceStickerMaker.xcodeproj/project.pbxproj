@@ -19,6 +19,7 @@
 		9CAEA1C126074DC0004EEF75 /* RoutingModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */; };
 		9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1C526075FE8004EEF75 /* Animator.swift */; };
 		9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1CB2607FA79004EEF75 /* Router.swift */; };
+		9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingModalTransition.swift; sourceTree = "<group>"; };
 		9CAEA1C526075FE8004EEF75 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		9CAEA1CB2607FA79004EEF75 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9CAEA1F22608A990004EEF75 /* Extensions */,
 				9CAEA1B226074B17004EEF75 /* Routing */,
 				9CAEA19C2605E41C004EEF75 /* ViewControllers */,
 				9CAEA1532605547A004EEF75 /* AppDelegate.swift */,
@@ -162,6 +165,14 @@
 				9CAEA1C026074DC0004EEF75 /* RoutingModalTransition.swift */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		9CAEA1F22608A990004EEF75 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 			files = (
 				9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
+				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
