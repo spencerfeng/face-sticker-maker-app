@@ -80,5 +80,39 @@ class StickersViewController: UIViewController {
 extension StickersViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
+        
+        let group = DispatchGroup()
+        var faceImages = [FaceImage]()
+        
+        for result in results {
+            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                result.itemProvider.loadObject(ofClass: UIImage.self) { image, _ in
+                    guard let image = image as? UIImage, let uncroppedCgImage = image.cgImage else { return }
+                    
+                    group.enter()
+                    
+                    uncroppedCgImage.faceCrop { result in
+                        defer { group.leave() }
+                        
+                        switch result {
+                        case .success(let cgImages):
+                            for cgImage in cgImages {
+                                let uiImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: image.imageOrientation)
+                                
+                                faceImages.append(FaceImage(id: UUID().uuidString, image: uiImage.pngData()))
+                            }
+                            return
+                        case .notFound, .failure:
+                            return
+                        }
+                    }
+                }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            // TODO
+            print("DispatchGroup is done")
+        }
     }
 }
