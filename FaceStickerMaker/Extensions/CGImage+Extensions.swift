@@ -41,7 +41,6 @@ public extension CGImage {
                 faceImages.append(faceImage)
             }
             
-            
             completion(.success(faceImages))
         }
         
@@ -58,4 +57,3 @@ public enum FaceCropResult {
     case notFound
     case failure(Error)
 }
-
