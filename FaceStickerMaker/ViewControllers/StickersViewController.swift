@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import PhotosUI
 
 class StickersViewController: UIViewController {
     
@@ -55,9 +56,29 @@ class StickersViewController: UIViewController {
     private func setupNavigationBarItems() {
         let item = UINavigationItem()
         
+        addStickersBtn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
+        
         item.rightBarButtonItem = UIBarButtonItem(customView: addStickersBtn)
         item.title = "Stickers"
         
         topNavigationBar.items = [item]
+    }
+    
+    @objc
+    private func handleAddStickersBtnClick() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 10
+        
+        let photoPickerVC = PHPickerViewController(configuration: configuration)
+        photoPickerVC.delegate = self
+        
+        self.present(photoPickerVC, animated: true, completion: nil)
+    }
+}
+
+extension StickersViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
