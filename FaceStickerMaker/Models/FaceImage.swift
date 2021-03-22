@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import UIKit
 
 struct FaceImage: Identifiable {
     var id: String
-    var image: CGImage
-    var orientation: UIImage.Orientation
+    var image: Data?
 }
