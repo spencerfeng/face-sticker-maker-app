@@ -21,6 +21,7 @@
 		9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1CB2607FA79004EEF75 /* Router.swift */; };
 		9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */; };
 		9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2072608BC4C004EEF75 /* FaceImage.swift */; };
+		9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		9CAEA1CB2607FA79004EEF75 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extensions.swift"; sourceTree = "<group>"; };
 		9CAEA2072608BC4C004EEF75 /* FaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceImage.swift; sourceTree = "<group>"; };
+		9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9CAEA19D2605E448004EEF75 /* StickersViewController.swift */,
+				9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
+				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */,
