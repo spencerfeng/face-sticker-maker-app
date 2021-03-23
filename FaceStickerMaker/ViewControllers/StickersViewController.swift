@@ -113,8 +113,11 @@ extension StickersViewController: PHPickerViewControllerDelegate {
         }
         
         group.notify(queue: .main) {
-            // TODO
-            print("DispatchGroup is done")
+            if !faceImages.isEmpty {
+                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel()
+                let chooseCroppedImagesVC = ChooseCroppedImagesViewController(viewModel: chooseCroppedImagesVM)
+                self.present(chooseCroppedImagesVC, animated: true, completion: nil)
+            }
         }
     }
 }

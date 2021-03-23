@@ -11,6 +11,9 @@ import UIKit
 class ChooseCroppedImagesViewController: UIViewController {
     
     // MARK: - Properties
+    // View model
+    var viewModel: ChooseCroppedImagesViewModel
+    
     // UI components
     var topNavigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar()
@@ -34,6 +37,16 @@ class ChooseCroppedImagesViewController: UIViewController {
         btn.setTitleColor(.blue, for: .normal)
         return btn
     }()
+    
+    // MARK: - Initializers
+    init(viewModel: ChooseCroppedImagesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
