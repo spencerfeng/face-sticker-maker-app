@@ -9,7 +9,6 @@ import Foundation
 
 class ChooseCroppedImagesViewModel {
     
-    // MARK: - Output
-    @Published private(set) var croppedImages = [FaceImage]()
+    var croppedImages = [FaceImage]()
     
 }
