@@ -38,6 +38,8 @@ class ChooseCroppedImagesViewController: UIViewController {
         return btn
     }()
     
+    let tableView = UITableView()
+    
     // MARK: - Initializers
     init(viewModel: ChooseCroppedImagesViewModel) {
         self.viewModel = viewModel
@@ -53,9 +55,13 @@ class ChooseCroppedImagesViewController: UIViewController {
         view.backgroundColor = .white
         
         setupNavigationBarItems()
+        setupTableView()
         
         view.addSubview(topNavigationBar)
         topNavigationBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -65,7 +71,12 @@ class ChooseCroppedImagesViewController: UIViewController {
             topNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topNavigationBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
             topNavigationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0)
+            topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0),
+            
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: topNavigationBar.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -82,6 +93,11 @@ class ChooseCroppedImagesViewController: UIViewController {
         topNavigationBar.items = [item]
     }
     
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cropped-image-selection-cell")
+    }
+    
     @objc
     private func handleCancelBtnClick() {
         dismiss(animated: true, completion: nil)
@@ -90,5 +106,19 @@ class ChooseCroppedImagesViewController: UIViewController {
     @objc
     private func handleSaveBtnClick() {
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: UITableViewDataSource protocol
+extension ChooseCroppedImagesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.croppedImages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cropped-image-selection-cell", for: indexPath)
+        cell.textLabel?.text = viewModel.croppedImages[indexPath.row].id
+        return cell
     }
 }
