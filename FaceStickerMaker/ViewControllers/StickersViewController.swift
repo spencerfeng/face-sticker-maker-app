@@ -86,11 +86,13 @@ extension StickersViewController: PHPickerViewControllerDelegate {
         
         for result in results {
             if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                group.enter()
                 result.itemProvider.loadObject(ofClass: UIImage.self) { image, _ in
+                    defer { group.leave() }
+                    
                     guard let image = image as? UIImage, let uncroppedCgImage = image.cgImage else { return }
                     
                     group.enter()
-                    
                     uncroppedCgImage.faceCrop { result in
                         defer { group.leave() }
                         
