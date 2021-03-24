@@ -24,6 +24,7 @@
 		9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */; };
 		9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA21226096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift */; };
 		9CAEA21F2609A319004EEF75 /* SelectFaceImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA21E2609A319004EEF75 /* SelectFaceImageTableViewCell.swift */; };
+		9CAEA2272609A52C004EEF75 /* SelectFaceImageTVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2262609A52C004EEF75 /* SelectFaceImageTVViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewController.swift; sourceTree = "<group>"; };
 		9CAEA21226096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewModel.swift; sourceTree = "<group>"; };
 		9CAEA21E2609A319004EEF75 /* SelectFaceImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTableViewCell.swift; sourceTree = "<group>"; };
+		9CAEA2262609A52C004EEF75 /* SelectFaceImageTVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTVViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				9CAEA21226096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift */,
+				9CAEA2262609A52C004EEF75 /* SelectFaceImageTVViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
+				9CAEA2272609A52C004EEF75 /* SelectFaceImageTVViewModel.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */,
 				9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */,
