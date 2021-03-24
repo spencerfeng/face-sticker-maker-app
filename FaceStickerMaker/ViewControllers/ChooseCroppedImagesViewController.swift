@@ -95,7 +95,8 @@ class ChooseCroppedImagesViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cropped-image-selection-cell")
+        tableView.delegate = self
+        tableView.register(SelectFaceImageTableViewCell.self, forCellReuseIdentifier: SelectFaceImageTableViewCell.identifier)
     }
     
     @objc
@@ -110,15 +111,28 @@ class ChooseCroppedImagesViewController: UIViewController {
     
 }
 
-// MARK: UITableViewDataSource protocol
+// MARK: - UITableViewDataSource protocol
 extension ChooseCroppedImagesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.croppedImages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cropped-image-selection-cell", for: indexPath)
-        cell.textLabel?.text = viewModel.croppedImages[indexPath.row].id
+        let tableCell = tableView.dequeueReusableCell(
+            withIdentifier: SelectFaceImageTableViewCell.identifier,
+            for: indexPath) as? SelectFaceImageTableViewCell
+        
+        guard let cell = tableCell else { return SelectFaceImageTableViewCell() }
+        let selectFaceImageTVVM = SelectFaceImageTVViewModel(faceImage: viewModel.croppedImages[indexPath.row])
+        cell.configureCell(viewModel: selectFaceImageTVVM)
+        
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate protocol
+extension ChooseCroppedImagesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70.0
     }
 }
