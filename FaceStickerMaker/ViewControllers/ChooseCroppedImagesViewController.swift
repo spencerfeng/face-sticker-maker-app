@@ -123,7 +123,10 @@ extension ChooseCroppedImagesViewController: UITableViewDataSource {
             for: indexPath) as? SelectFaceImageTableViewCell
         
         guard let cell = tableCell else { return SelectFaceImageTableViewCell() }
-        let selectFaceImageTVVM = SelectFaceImageTVViewModel(faceImage: viewModel.croppedImages[indexPath.row], selectFaceImageToggleResponder: viewModel)
+        let selectFaceImageTVVM = SelectFaceImageTVViewModel(
+            faceImage: viewModel.croppedImages[indexPath.row],
+            selectFaceImageToggleResponder: viewModel
+        )
         cell.configureCell(viewModel: selectFaceImageTVVM)
         
         return cell
