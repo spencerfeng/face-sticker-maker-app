@@ -12,13 +12,16 @@ class SelectFaceImageTVViewModel {
     @Published private(set) var willKeep = false
     
     let faceImage: FaceImage
+    let selectFaceImageToggleResponder: SelectFaceImageToggleResponder
     
-    init(faceImage: FaceImage) {
+    init(faceImage: FaceImage, selectFaceImageToggleResponder: SelectFaceImageToggleResponder) {
         self.faceImage = faceImage
+        self.selectFaceImageToggleResponder = selectFaceImageToggleResponder
     }
     
     func toggleWillKeepState() {
         willKeep.toggle()
+        selectFaceImageToggleResponder.toggleFaceImageSelection(faceImage: faceImage, selected: willKeep)
     }
     
 }
