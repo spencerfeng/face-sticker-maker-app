@@ -18,4 +18,8 @@ class StickerRepository {
     func saveStickers(stickers: [FaceImage]) -> [String] {
         return stickerService.saveStickers(stickers: stickers)
     }
+    
+    func getStickers() -> [FaceImage] {
+        return stickerService.getStickers()
+    }
 }

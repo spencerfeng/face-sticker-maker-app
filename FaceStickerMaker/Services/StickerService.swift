@@ -42,4 +42,15 @@ class StickerService {
         return newlySavedStickersIds
     }
     
+    func getStickers() -> [FaceImage] {
+        let stickerIds = UserDefaults.standard.array(forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
+        
+        return stickerIds.compactMap { stickerId in
+            guard let faceImageURL = Helper.filePath(forKey: stickerId, forFormat: "png") else { return nil }
+            let imageData = NSData(contentsOf: faceImageURL) as Data?
+            guard let data = imageData else { return nil }
+            return FaceImage(id: stickerId, image: data)
+        }
+    }
+    
 }
