@@ -9,8 +9,14 @@ import Foundation
 
 class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
     
+    var stickerRepository: StickerRepository
+    
     var croppedImages = [FaceImage]()
     var selectedFaceImages = [FaceImage]()
+    
+    init(stickerRepository: StickerRepository) {
+        self.stickerRepository = stickerRepository
+    }
     
     func toggleFaceImageSelection(faceImage: FaceImage, selected: Bool) {
         if selected {
@@ -20,6 +26,10 @@ class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
                 selectedFaceImages.remove(at: index)
             }
         }
+    }
+    
+    func saveStickers() {
+        _ = stickerRepository.saveStickers(stickers: selectedFaceImages)
     }
     
 }

@@ -114,8 +114,12 @@ extension StickersViewController: PHPickerViewControllerDelegate {
         
         group.notify(queue: .main) {
             if !faceImages.isEmpty {
-                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel()
+                let stickerService = StickerService()
+                let stickerRepository = StickerRepository(stickerService: stickerService)
+                
+                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel(stickerRepository: stickerRepository)
                 chooseCroppedImagesVM.croppedImages = faceImages
+                
                 let chooseCroppedImagesVC = ChooseCroppedImagesViewController(viewModel: chooseCroppedImagesVM)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
             }

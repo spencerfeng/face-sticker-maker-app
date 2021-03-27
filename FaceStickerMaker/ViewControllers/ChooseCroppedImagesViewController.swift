@@ -106,6 +106,7 @@ class ChooseCroppedImagesViewController: UIViewController {
     
     @objc
     private func handleSaveBtnClick() {
+        viewModel.saveStickers()
         dismiss(animated: true, completion: nil)
     }
     
