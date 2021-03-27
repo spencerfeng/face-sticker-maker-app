@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 import PhotosUI
+import Combine
 
 class StickersViewController: UIViewController {
     
     // MARK: - Properties
     // View models
     var viewModel: StickersViewModel
+    
+    var subscriptions = Set<AnyCancellable>()
     
     // UI components
     var topNavigationBar: UINavigationBar = {
@@ -63,6 +66,10 @@ class StickersViewController: UIViewController {
         
         view.addSubview(stickersCollectionView)
         stickersCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        viewModel.getStickers()
+        
+        bindUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,6 +98,15 @@ class StickersViewController: UIViewController {
         item.title = "Stickers"
         
         topNavigationBar.items = [item]
+    }
+    
+    private func bindUI() {
+        viewModel
+            .$stickers
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.stickersCollectionView.reloadData()
+            }.store(in: &subscriptions)
     }
     
     @objc
