@@ -15,7 +15,7 @@ class StickerRepository {
         self.stickerService = stickerService
     }
     
-    func saveStickers(stickers: [FaceImage]) -> [String] {
+    func saveStickers(stickers: [FaceImage]) -> [FaceImage] {
         return stickerService.saveStickers(stickers: stickers)
     }
     

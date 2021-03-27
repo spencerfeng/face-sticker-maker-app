@@ -9,7 +9,7 @@ import Foundation
 
 class StickerService {
     
-    func saveStickers(stickers: [FaceImage]) -> [String] {
+    func saveStickers(stickers: [FaceImage]) -> [FaceImage] {
         return saveStickersToUserDefaults(stickers: stickers)
     }
     
@@ -25,7 +25,7 @@ class StickerService {
         }
     }
     
-    private func saveStickersToUserDefaults(stickers: [FaceImage]) -> [String] {
+    private func saveStickersToUserDefaults(stickers: [FaceImage]) -> [FaceImage] {
         var existingStickersIds = UserDefaults.standard.array(
             forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
         
@@ -40,7 +40,9 @@ class StickerService {
         
         UserDefaults.standard.set(existingStickersIds, forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS)
         
-        return newlySavedStickersIds
+        return stickers.filter { sticker in
+            newlySavedStickersIds.contains(sticker.id)
+        }
     }
     
     func getStickers() -> [FaceImage] {
