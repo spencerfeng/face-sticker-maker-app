@@ -26,7 +26,8 @@ class StickerService {
     }
     
     private func saveStickersToUserDefaults(stickers: [FaceImage]) -> [String] {
-        var existingStickersIds = UserDefaults.standard.array(forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
+        var existingStickersIds = UserDefaults.standard.array(
+            forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
         
         var newlySavedStickersIds = [String]()
         
