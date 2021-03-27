@@ -30,6 +30,7 @@
 		9CAEA24E260E7C6C004EEF75 /* StickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA24D260E7C6C004EEF75 /* StickerService.swift */; };
 		9CAEA253260E7D63004EEF75 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA252260E7D63004EEF75 /* Helper.swift */; };
 		9CAEA258260E8F03004EEF75 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA257260E8F03004EEF75 /* Constants.swift */; };
+		9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		9CAEA24D260E7C6C004EEF75 /* StickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerService.swift; sourceTree = "<group>"; };
 		9CAEA252260E7D63004EEF75 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		9CAEA257260E8F03004EEF75 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 			children = (
 				9CAEA21226096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift */,
 				9CAEA2262609A52C004EEF75 /* SelectFaceImageTVViewModel.swift */,
+				9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA2272609A52C004EEF75 /* SelectFaceImageTVViewModel.swift in Sources */,
+				9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */,
 				9CAEA253260E7D63004EEF75 /* Helper.swift in Sources */,
 				9CAEA236260C98DB004EEF75 /* SelectFaceImageToggleResponder.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,

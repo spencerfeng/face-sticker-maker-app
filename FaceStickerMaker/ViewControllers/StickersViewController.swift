@@ -12,6 +12,9 @@ import PhotosUI
 class StickersViewController: UIViewController {
     
     // MARK: - Properties
+    // View models
+    var viewModel: StickersViewModel
+    
     // UI components
     var topNavigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar()
@@ -37,6 +40,17 @@ class StickersViewController: UIViewController {
         collectionView.backgroundColor = .blue
         return collectionView
     }()
+    
+    // MARK: - Initializers
+    init(viewModel: StickersViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
