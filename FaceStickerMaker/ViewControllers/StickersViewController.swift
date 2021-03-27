@@ -31,6 +31,13 @@ class StickersViewController: UIViewController {
         return btn
     }()
     
+    var stickersCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .blue
+        return collectionView
+    }()
+    
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         view.backgroundColor = .white
@@ -39,6 +46,9 @@ class StickersViewController: UIViewController {
         
         view.addSubview(topNavigationBar)
         topNavigationBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(stickersCollectionView)
+        stickersCollectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,7 +58,12 @@ class StickersViewController: UIViewController {
             topNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topNavigationBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
             topNavigationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0)
+            topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0),
+            
+            stickersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stickersCollectionView.topAnchor.constraint(equalTo: topNavigationBar.bottomAnchor),
+            stickersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stickersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
