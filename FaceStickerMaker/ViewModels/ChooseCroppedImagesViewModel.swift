@@ -10,12 +10,14 @@ import Foundation
 class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
     
     var stickerRepository: StickerRepository
+    var addStickersResponder: AddStickersResponder
     
     var croppedImages = [FaceImage]()
     var selectedFaceImages = [FaceImage]()
     
-    init(stickerRepository: StickerRepository) {
+    init(stickerRepository: StickerRepository, addStickersResponder: AddStickersResponder) {
         self.stickerRepository = stickerRepository
+        self.addStickersResponder = addStickersResponder
     }
     
     func toggleFaceImageSelection(faceImage: FaceImage, selected: Bool) {
@@ -29,7 +31,8 @@ class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
     }
     
     func saveStickers() {
-        _ = stickerRepository.saveStickers(stickers: selectedFaceImages)
+        let addedStickers = stickerRepository.saveStickers(stickers: selectedFaceImages)
+        addStickersResponder.handleAddedStickers(newStickers: addedStickers)
     }
     
 }

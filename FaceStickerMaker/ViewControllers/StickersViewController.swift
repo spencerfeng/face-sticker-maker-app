@@ -60,6 +60,7 @@ class StickersViewController: UIViewController {
         view.backgroundColor = .white
         
         setupNavigationBarItems()
+        setupCollectionView()
         
         view.addSubview(topNavigationBar)
         topNavigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +99,12 @@ class StickersViewController: UIViewController {
         item.title = "Stickers"
         
         topNavigationBar.items = [item]
+    }
+    
+    private func setupCollectionView() {
+        stickersCollectionView.dataSource = self
+        
+        stickersCollectionView.register(StickerCollectionViewCell.self, forCellWithReuseIdentifier: StickerCollectionViewCell.identifier)
     }
     
     private func bindUI() {
@@ -162,12 +169,22 @@ extension StickersViewController: PHPickerViewControllerDelegate {
                 let stickerService = StickerService()
                 let stickerRepository = StickerRepository(stickerService: stickerService)
                 
-                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel(stickerRepository: stickerRepository)
+                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel(stickerRepository: stickerRepository, addStickersResponder: self.viewModel)
                 chooseCroppedImagesVM.croppedImages = faceImages
                 
                 let chooseCroppedImagesVC = ChooseCroppedImagesViewController(viewModel: chooseCroppedImagesVM)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
             }
         }
+    }
+}
+
+extension StickersViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.stickers.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return stickersCollectionView.dequeueReusableCell(withReuseIdentifier: StickerCollectionViewCell.identifier, for: indexPath)
     }
 }

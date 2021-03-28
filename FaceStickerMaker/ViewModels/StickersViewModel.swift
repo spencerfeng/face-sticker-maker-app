@@ -22,3 +22,11 @@ class StickersViewModel {
     }
     
 }
+
+extension StickersViewModel: AddStickersResponder {
+    func handleAddedStickers(newStickers: [FaceImage]) {
+        if newStickers.count > 0 {
+            stickers = newStickers + stickers
+        }
+    }
+}
