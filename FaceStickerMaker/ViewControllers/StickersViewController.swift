@@ -12,9 +12,12 @@ import Combine
 
 class StickersViewController: UIViewController {
     
+    typealias Factory = ViewControllerFactory
+    
     // MARK: - Properties
-    // View models
-    var viewModel: StickersViewModel
+    private let viewModel: StickersViewModel
+    
+    private let factory: Factory
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -45,8 +48,9 @@ class StickersViewController: UIViewController {
     }()
     
     // MARK: - Initializers
-    init(viewModel: StickersViewModel) {
+    init(viewModel: StickersViewModel, factory: Factory) {
         self.viewModel = viewModel
+        self.factory = factory
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -166,13 +170,7 @@ extension StickersViewController: PHPickerViewControllerDelegate {
         
         group.notify(queue: .main) {
             if !faceImages.isEmpty {
-                let stickerService = StickerService()
-                let stickerRepository = StickerRepository(stickerService: stickerService)
-                
-                let chooseCroppedImagesVM = ChooseCroppedImagesViewModel(stickerRepository: stickerRepository, addStickersResponder: self.viewModel)
-                chooseCroppedImagesVM.croppedImages = faceImages
-                
-                let chooseCroppedImagesVC = ChooseCroppedImagesViewController(viewModel: chooseCroppedImagesVM)
+                let chooseCroppedImagesVC = self.factory.makeChooseCroppedImagesViewController(with: faceImages)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
             }
         }

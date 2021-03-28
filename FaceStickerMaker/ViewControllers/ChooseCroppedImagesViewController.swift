@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 class ChooseCroppedImagesViewController: UIViewController {
+    typealias Factory = SelectFaceImageTVVMFactory
     
     // MARK: - Properties
-    // View model
     var viewModel: ChooseCroppedImagesViewModel
+    
+    let factory: Factory
     
     // UI components
     var topNavigationBar: UINavigationBar = {
@@ -41,8 +43,9 @@ class ChooseCroppedImagesViewController: UIViewController {
     let tableView = UITableView()
     
     // MARK: - Initializers
-    init(viewModel: ChooseCroppedImagesViewModel) {
+    init(viewModel: ChooseCroppedImagesViewModel, factory: Factory) {
         self.viewModel = viewModel
+        self.factory = factory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -124,10 +127,7 @@ extension ChooseCroppedImagesViewController: UITableViewDataSource {
             for: indexPath) as? SelectFaceImageTableViewCell
         
         guard let cell = tableCell else { return SelectFaceImageTableViewCell() }
-        let selectFaceImageTVVM = SelectFaceImageTVViewModel(
-            faceImage: viewModel.croppedImages[indexPath.row],
-            selectFaceImageToggleResponder: viewModel
-        )
+        let selectFaceImageTVVM = factory.makeSelectFaceImageTVVM(for: viewModel.croppedImages[indexPath.row])
         cell.configureCell(viewModel: selectFaceImageTVVM)
         
         return cell

@@ -17,11 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        let stickerService = StickerService()
-        let stickerRepository = StickerRepository(stickerService: stickerService)
-        let stickersVM = StickersViewModel(stickerRepository: stickerRepository)
-        let viewController = StickersViewController(viewModel: stickersVM)
-        window?.rootViewController = viewController
+        let container = DependencyContainer()
+        let stickersVC = container.makeStickersViewController()
+        window?.rootViewController = stickersVC
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
     }

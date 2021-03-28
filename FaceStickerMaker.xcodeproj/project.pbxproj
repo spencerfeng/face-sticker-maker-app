@@ -33,6 +33,9 @@
 		9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */; };
 		9CAEA262260FF04E004EEF75 /* StickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA261260FF04E004EEF75 /* StickerCollectionViewCell.swift */; };
 		9CAEA26F260FF860004EEF75 /* AddStickersResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA26E260FF860004EEF75 /* AddStickersResponder.swift */; };
+		9CAEA27526107DC0004EEF75 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA27426107DC0004EEF75 /* ViewControllerFactory.swift */; };
+		9CAEA29026108C89004EEF75 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA28F26108C89004EEF75 /* DependencyContainer.swift */; };
+		9CAEA29B2610908E004EEF75 /* SelectFaceImageTVVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA29A2610908E004EEF75 /* SelectFaceImageTVVMFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewModel.swift; sourceTree = "<group>"; };
 		9CAEA261260FF04E004EEF75 /* StickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CAEA26E260FF860004EEF75 /* AddStickersResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStickersResponder.swift; sourceTree = "<group>"; };
+		9CAEA27426107DC0004EEF75 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		9CAEA28F26108C89004EEF75 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		9CAEA29A2610908E004EEF75 /* SelectFaceImageTVVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTVVMFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,8 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9CAEA28E26108C73004EEF75 /* Dependencies */,
+				9CAEA27326107DA4004EEF75 /* Factories */,
 				9CAEA24C260E7C48004EEF75 /* Services */,
 				9CAEA243260CAA7B004EEF75 /* Repositories */,
 				9CAEA234260C9891004EEF75 /* Responders */,
@@ -260,6 +268,23 @@
 				9CAEA24D260E7C6C004EEF75 /* StickerService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9CAEA27326107DA4004EEF75 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA27426107DC0004EEF75 /* ViewControllerFactory.swift */,
+				9CAEA29A2610908E004EEF75 /* SelectFaceImageTVVMFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		9CAEA28E26108C73004EEF75 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9CAEA28F26108C89004EEF75 /* DependencyContainer.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,11 +438,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */,
+				9CAEA29B2610908E004EEF75 /* SelectFaceImageTVVMFactory.swift in Sources */,
 				9CAEA258260E8F03004EEF75 /* Constants.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA2272609A52C004EEF75 /* SelectFaceImageTVViewModel.swift in Sources */,
+				9CAEA29026108C89004EEF75 /* DependencyContainer.swift in Sources */,
 				9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */,
 				9CAEA253260E7D63004EEF75 /* Helper.swift in Sources */,
 				9CAEA26F260FF860004EEF75 /* AddStickersResponder.swift in Sources */,
@@ -429,6 +456,7 @@
 				9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */,
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9CAEA24E260E7C6C004EEF75 /* StickerService.swift in Sources */,
+				9CAEA27526107DC0004EEF75 /* ViewControllerFactory.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
 				9CAEA1BC26074D29004EEF75 /* RoutingTransition.swift in Sources */,
 				9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */,
