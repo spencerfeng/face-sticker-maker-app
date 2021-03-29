@@ -1,13 +1,13 @@
 //
-//  SelectFaceImageTVViewModel.swift
+//  SelectFaceImageTVCViewModel.swift
 //  FaceStickerMaker
 //
-//  Created by Spencer Feng on 23/3/21.
+//  Created by Spencer Feng on 29/3/21.
 //
 
 import Foundation
 
-class SelectFaceImageTVViewModel {
+class SelectFaceImageTVCViewModel {
     
     @Published private(set) var willKeep = false
     

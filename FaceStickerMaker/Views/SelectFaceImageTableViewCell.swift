@@ -14,7 +14,7 @@ class SelectFaceImageTableViewCell: UITableViewCell {
     static let identifier = "SelectFaceImageTableViewCell"
     
     // MARK: - Properties
-    var viewModel: SelectFaceImageTVViewModel?
+    var viewModel: SelectFaceImageTVCViewModel?
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -69,7 +69,7 @@ class SelectFaceImageTableViewCell: UITableViewCell {
     }
     
     // MARK: - Other Methods
-    public func configureCell(viewModel: SelectFaceImageTVViewModel) {
+    public func configureCell(viewModel: SelectFaceImageTVCViewModel) {
         // configure faceImageView
         if let imageData = viewModel.faceImage.image {
             let uiImage = UIImage(data: imageData) ?? UIImage()
