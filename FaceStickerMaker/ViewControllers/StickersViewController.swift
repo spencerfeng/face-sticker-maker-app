@@ -21,6 +21,8 @@ class StickersViewController: UIViewController {
     
     var subscriptions = Set<AnyCancellable>()
     
+    private let gridSpacing: CGFloat = 20
+    
     // UI components
     var topNavigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar()
@@ -40,8 +42,11 @@ class StickersViewController: UIViewController {
         return btn
     }()
     
-    var stickersCollectionView: UICollectionView = {
+    lazy var stickersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: gridSpacing, left: gridSpacing, bottom: gridSpacing, right: gridSpacing)
+        layout.minimumLineSpacing = gridSpacing
+        layout.minimumInteritemSpacing = gridSpacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .blue
         return collectionView
@@ -107,6 +112,7 @@ class StickersViewController: UIViewController {
     
     private func setupCollectionView() {
         stickersCollectionView.dataSource = self
+        stickersCollectionView.delegate = self
         
         stickersCollectionView.register(StickerCollectionViewCell.self, forCellWithReuseIdentifier: StickerCollectionViewCell.identifier)
     }
@@ -193,5 +199,18 @@ extension StickersViewController: UICollectionViewDataSource {
         cell.configureCell(viewModel: stickersCollectionViewCellVM)
         
         return cell
+    }
+}
+
+extension StickersViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let numberOfItemsPerRow: CGFloat = 5
+        let spacingBetweenCells = gridSpacing
+        
+        let totalSpacing = (2 * gridSpacing) + (numberOfItemsPerRow - 1) * spacingBetweenCells
+        
+        let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
+        return CGSize(width: width, height: width)
     }
 }
