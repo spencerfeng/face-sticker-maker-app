@@ -12,7 +12,7 @@ import Combine
 
 class StickersViewController: UIViewController {
     
-    typealias Factory = ViewControllerFactory
+    typealias Factory = ViewControllerFactory & StickersCollectionViewCellVMFactory
     
     // MARK: - Properties
     private let viewModel: StickersViewModel
@@ -183,6 +183,15 @@ extension StickersViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return stickersCollectionView.dequeueReusableCell(withReuseIdentifier: StickerCollectionViewCell.identifier, for: indexPath)
+        let collectionViewCell = stickersCollectionView.dequeueReusableCell(
+            withReuseIdentifier: StickerCollectionViewCell.identifier,
+            for: indexPath
+        ) as? StickerCollectionViewCell
+        
+        guard let cell = collectionViewCell else { return UICollectionViewCell() }
+        let stickersCollectionViewCellVM = factory.makeStickersCollectionViewCellVMFactory(for: viewModel.stickers[indexPath.row])
+        cell.configureCell(viewModel: stickersCollectionViewCellVM)
+        
+        return cell
     }
 }

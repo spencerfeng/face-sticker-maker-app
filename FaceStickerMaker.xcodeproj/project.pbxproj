@@ -36,6 +36,8 @@
 		9CAEA29026108C89004EEF75 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA28F26108C89004EEF75 /* DependencyContainer.swift */; };
 		9CAEA2A026112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA29F26112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift */; };
 		9CAEA2A826112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */; };
+		9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */; };
+		9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		9CAEA28F26108C89004EEF75 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		9CAEA29F26112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTVCViewModel.swift; sourceTree = "<group>"; };
 		9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTVCVMFactory.swift; sourceTree = "<group>"; };
+		9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellVMFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,7 @@
 				9CAEA21226096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift */,
 				9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */,
 				9CAEA29F26112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift */,
+				9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			children = (
 				9CAEA27426107DC0004EEF75 /* ViewControllerFactory.swift */,
 				9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */,
+				9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -450,6 +456,8 @@
 				9CAEA26F260FF860004EEF75 /* AddStickersResponder.swift in Sources */,
 				9CAEA236260C98DB004EEF75 /* SelectFaceImageToggleResponder.swift in Sources */,
 				9CAEA262260FF04E004EEF75 /* StickerCollectionViewCell.swift in Sources */,
+				9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */,
+				9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA245260CAA92004EEF75 /* StickerRepository.swift in Sources */,
 				9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */,
