@@ -38,6 +38,7 @@
 		9CAEA2A826112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */; };
 		9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */; };
 		9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */; };
+		9CAEA2C7261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFaceImageTVCVMFactory.swift; sourceTree = "<group>"; };
 		9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellVMFactory.swift; sourceTree = "<group>"; };
+		9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				9CAEA27426107DC0004EEF75 /* ViewControllerFactory.swift */,
 				9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */,
 				9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */,
+				9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA2A026112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift in Sources */,
 				9CAEA29026108C89004EEF75 /* DependencyContainer.swift in Sources */,
+				9CAEA2C7261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift in Sources */,
 				9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */,
 				9CAEA253260E7D63004EEF75 /* Helper.swift in Sources */,
 				9CAEA2A826112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift in Sources */,

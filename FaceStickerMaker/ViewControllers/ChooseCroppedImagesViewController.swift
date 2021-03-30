@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ChooseCroppedImagesViewController: UIViewController {
-    typealias Factory = SelectFaceImageTVCVMFactory
+    typealias Factory = SelectFaceImageTVCVMFactory & ChooseCroppedImagesViewModelFactory
     
     // MARK: - Properties
     var viewModel: ChooseCroppedImagesViewModel
@@ -43,9 +43,13 @@ class ChooseCroppedImagesViewController: UIViewController {
     let tableView = UITableView()
     
     // MARK: - Initializers
-    init(viewModel: ChooseCroppedImagesViewModel, factory: Factory) {
+    init(faceImages: [FaceImage], factory: Factory) {
+        let viewModel = factory.makeChooseCroppedImagesViewModel()
+        viewModel.croppedImages = faceImages
         self.viewModel = viewModel
+        
         self.factory = factory
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -127,7 +131,7 @@ extension ChooseCroppedImagesViewController: UITableViewDataSource {
             for: indexPath) as? SelectFaceImageTableViewCell
         
         guard let cell = tableCell else { return SelectFaceImageTableViewCell() }
-        let selectFaceImageTVCVM = factory.makeSelectFaceImageTVCVM(for: viewModel.croppedImages[indexPath.row])
+        let selectFaceImageTVCVM = factory.makeSelectFaceImageTVCVM(for: viewModel.croppedImages[indexPath.row], with: viewModel)
         cell.configureCell(viewModel: selectFaceImageTVCVM)
         
         return cell

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SelectFaceImageTVCVMFactory {
-    func makeSelectFaceImageTVCVM(for faceImage: FaceImage) -> SelectFaceImageTVCViewModel
+    func makeSelectFaceImageTVCVM(for faceImage: FaceImage, with selectFaceImageToggleResponder: SelectFaceImageToggleResponder) -> SelectFaceImageTVCViewModel
 }
