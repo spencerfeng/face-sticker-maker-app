@@ -9,7 +9,13 @@ import Foundation
 
 class StickersViewModel {
     
+    enum viewMode {
+        case normal
+        case selecting
+    }
+    
     @Published private(set) var stickers = [FaceImage]()
+    @Published private(set) var currentViewMode = viewMode.normal
     
     let stickerRepository: StickerRepository
     
@@ -21,6 +27,14 @@ class StickersViewModel {
         stickers = stickerRepository.getStickers()
     }
     
+    func startSelectingStickers() {
+        currentViewMode = viewMode.selecting
+    }
+    
+    func finishSelectingStickers() {
+        currentViewMode = viewMode.normal
+    }
+
 }
 
 extension StickersViewModel: AddStickersResponder {
