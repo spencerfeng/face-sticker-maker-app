@@ -11,8 +11,14 @@ class StickersCollectionViewCellViewModel {
     
     let sticker: FaceImage
     
+    @Published private(set) var isSelected = false
+    
     init(sticker: FaceImage) {
         self.sticker = sticker
+    }
+    
+    public func toggleSelectedState() {
+        isSelected.toggle()
     }
     
 }

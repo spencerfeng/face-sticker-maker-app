@@ -138,11 +138,20 @@ class StickersViewController: UIViewController {
             .$currentViewMode
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
-                switch value {
-                case .normal:
-                    self?.stickersSelectionActionBtn.setTitle("Select", for: .normal)
-                case .selecting:
-                    self?.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
+                if let self = self {
+                    switch value {
+                    case .normal:
+                        self.stickersSelectionActionBtn.setTitle("Select", for: .normal)
+                        self.viewModel.indexPathOfSelectedStickers.forEach { indexPath in
+                            let cell = self.stickersCollectionView.cellForItem(at: indexPath) as? StickerCollectionViewCell
+                            if let cell = cell {
+                                cell.viewModel?.toggleSelectedState()
+                            }
+                        }
+                        self.viewModel.indexPathOfSelectedStickers.removeAll()
+                    case .selecting:
+                        self.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
+                    }
                 }
             }.store(in: &subscriptions)
     }
@@ -238,5 +247,21 @@ extension StickersViewController: UICollectionViewDelegateFlowLayout {
         
         let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
         return CGSize(width: width, height: width)
+    }
+}
+
+extension StickersViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if viewModel.currentViewMode == .selecting {
+            if let cell = collectionView.cellForItem(at: indexPath) as? StickerCollectionViewCell {
+                cell.viewModel?.toggleSelectedState()
+                
+                if viewModel.indexPathOfSelectedStickers.contains(indexPath) {
+                    viewModel.indexPathOfSelectedStickers.remove(indexPath)
+                } else {
+                    viewModel.indexPathOfSelectedStickers.insert(indexPath)
+                }
+            }
+        }
     }
 }
