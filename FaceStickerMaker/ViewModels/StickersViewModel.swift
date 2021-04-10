@@ -7,15 +7,15 @@
 
 import Foundation
 
+enum StickersViewMode {
+    case normal
+    case selecting
+}
+
 class StickersViewModel {
     
-    enum viewMode {
-        case normal
-        case selecting
-    }
-    
     @Published private(set) var stickers = [FaceImage]()
-    @Published private(set) var currentViewMode = viewMode.normal
+    @Published private(set) var currentViewMode = StickersViewMode.normal
     
     let stickerRepository: StickerRepository
     
@@ -27,12 +27,13 @@ class StickersViewModel {
         stickers = stickerRepository.getStickers()
     }
     
-    func startSelectingStickers() {
-        currentViewMode = viewMode.selecting
-    }
-    
-    func finishSelectingStickers() {
-        currentViewMode = viewMode.normal
+    func changeViewMode() {
+        switch currentViewMode {
+        case .normal:
+            currentViewMode = .selecting
+        case .selecting:
+            currentViewMode = .normal
+        }
     }
 
 }

@@ -42,6 +42,13 @@ class StickersViewController: UIViewController {
         return btn
     }()
     
+    var stickersSelectionActionBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitleColor(.blue, for: .normal)
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        return btn
+    }()
+    
     lazy var stickersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: gridSpacing, left: gridSpacing, bottom: gridSpacing, right: gridSpacing)
@@ -103,7 +110,9 @@ class StickersViewController: UIViewController {
         let item = UINavigationItem()
         
         addStickersBtn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
+        stickersSelectionActionBtn.addTarget(self, action: #selector(handleStickersSelectionActionBtnClick), for: .touchUpInside)
         
+        item.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
         item.rightBarButtonItem = UIBarButtonItem(customView: addStickersBtn)
         item.title = "Stickers"
         
@@ -124,6 +133,18 @@ class StickersViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.stickersCollectionView.reloadData()
             }.store(in: &subscriptions)
+        
+        viewModel
+            .$currentViewMode
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                switch value {
+                case .normal:
+                    self?.stickersSelectionActionBtn.setTitle("Select", for: .normal)
+                case .selecting:
+                    self?.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
+                }
+            }.store(in: &subscriptions)
     }
     
     @objc
@@ -136,6 +157,11 @@ class StickersViewController: UIViewController {
         photoPickerVC.delegate = self
         
         self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func handleStickersSelectionActionBtnClick() {
+        viewModel.changeViewMode()
     }
 }
 
