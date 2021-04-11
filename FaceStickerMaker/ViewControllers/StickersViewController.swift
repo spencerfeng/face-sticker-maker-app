@@ -33,8 +33,21 @@ class StickersViewController: UIViewController {
         return navigationBar
     }()
     
+    var customNavigationItem: UINavigationItem = {
+        return UINavigationItem()
+    }()
+    
     var addStickersBtn: UIButton = {
         let btnBgImg = UIImage(systemName: "plus")
+        let btn = UIButton()
+        btn.setImage(btnBgImg, for: .normal)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
+        btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
+        return btn
+    }()
+    
+    var deleteStickersBtn: UIButton = {
+        let btnBgImg = UIImage(systemName: "trash")
         let btn = UIButton()
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
@@ -107,16 +120,14 @@ class StickersViewController: UIViewController {
     
     // MARK: - Other Methods
     private func setupNavigationBarItems() {
-        let item = UINavigationItem()
-        
         addStickersBtn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
+        deleteStickersBtn.addTarget(self, action: #selector(handleDeleteStickersBtnClick), for: .touchUpInside)
         stickersSelectionActionBtn.addTarget(self, action: #selector(handleStickersSelectionActionBtnClick), for: .touchUpInside)
         
-        item.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
-        item.rightBarButtonItem = UIBarButtonItem(customView: addStickersBtn)
-        item.title = "Stickers"
+        customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
+        customNavigationItem.title = "Stickers"
         
-        topNavigationBar.items = [item]
+        topNavigationBar.items = [customNavigationItem]
     }
     
     private func setupCollectionView() {
@@ -141,7 +152,10 @@ class StickersViewController: UIViewController {
                 if let self = self {
                     switch value {
                     case .normal:
+                        // set the title of the left top navigation button
                         self.stickersSelectionActionBtn.setTitle("Select", for: .normal)
+                        
+                        // clear selected stickers
                         self.viewModel.indexPathOfSelectedStickers.forEach { indexPath in
                             let cell = self.stickersCollectionView.cellForItem(at: indexPath) as? StickerCollectionViewCell
                             if let cell = cell {
@@ -149,8 +163,32 @@ class StickersViewController: UIViewController {
                             }
                         }
                         self.viewModel.indexPathOfSelectedStickers.removeAll()
+                        
+                        // set the right top navigation button
+                        self.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.addStickersBtn)
+                        
                     case .selecting:
+                        // set the title of the left top navigation button
                         self.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
+                        
+                        // set the right top navigation button
+                        self.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.deleteStickersBtn)
+                        
+                        // disable delete stickers button
+                        self.viewModel.canDeleteStickers = false
+                    }
+                }
+            }.store(in: &subscriptions)
+        
+        viewModel
+            .$canDeleteStickers
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                if let self = self {
+                    if value {
+                        self.deleteStickersBtn.isEnabled = true
+                    } else {
+                        self.deleteStickersBtn.isEnabled = false
                     }
                 }
             }.store(in: &subscriptions)
@@ -166,6 +204,11 @@ class StickersViewController: UIViewController {
         photoPickerVC.delegate = self
         
         self.present(photoPickerVC, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func handleDeleteStickersBtnClick() {
+        // TODO: delete selected stickers
     }
     
     @objc
@@ -260,6 +303,12 @@ extension StickersViewController: UICollectionViewDelegate {
                     viewModel.indexPathOfSelectedStickers.remove(indexPath)
                 } else {
                     viewModel.indexPathOfSelectedStickers.insert(indexPath)
+                }
+                
+                if viewModel.indexPathOfSelectedStickers.count > 0 {
+                    viewModel.canDeleteStickers = true
+                } else {
+                    viewModel.canDeleteStickers = false
                 }
             }
         }

@@ -16,6 +16,7 @@ class StickersViewModel {
     
     @Published private(set) var stickers = [FaceImage]()
     @Published private(set) var currentViewMode = StickersViewMode.normal
+    @Published var canDeleteStickers = false
 
     var indexPathOfSelectedStickers = Set<IndexPath>()
     
