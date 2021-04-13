@@ -208,7 +208,9 @@ class StickersViewController: UIViewController {
     
     @objc
     private func handleDeleteStickersBtnClick() {
-        // TODO: delete selected stickers
+        viewModel.removeSelectedStickers()
+        viewModel.indexPathOfSelectedStickers.removeAll()
+        viewModel.changeViewMode()
     }
     
     @objc

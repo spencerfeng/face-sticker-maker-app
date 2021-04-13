@@ -38,6 +38,16 @@ class StickersViewModel {
             currentViewMode = .normal
         }
     }
+    
+    func removeSelectedStickers() {
+        let stickersToRemove = indexPathOfSelectedStickers.map { indexPath in
+            return self.stickers[indexPath.row]
+        }
+        
+        let idsOfRemovedStickers = stickerRepository.removeStickers(stickers: stickersToRemove)
+        
+        stickers = stickers.filter { idsOfRemovedStickers.contains($0.id) }
+    }
 
 }
 

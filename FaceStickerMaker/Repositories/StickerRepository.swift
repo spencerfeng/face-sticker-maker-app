@@ -22,4 +22,8 @@ class StickerRepository {
     func getStickers() -> [FaceImage] {
         return stickerService.getStickers()
     }
+    
+    func removeStickers(stickers: [FaceImage]) -> [String] {
+        return stickerService.removeStickers(stickers: stickers)
+    }
 }

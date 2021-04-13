@@ -56,4 +56,16 @@ class StickerService {
         }
     }
     
+    func removeStickers(stickers: [FaceImage]) -> [String] {
+        let idsOfStickersToRemove = stickers.map { $0.id }
+        let existingStickersIds = UserDefaults.standard.array(
+            forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
+        
+        let filteredStickersIds = existingStickersIds.filter { !idsOfStickersToRemove.contains($0) }
+        
+        UserDefaults.standard.set(filteredStickersIds, forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS)
+        
+        return filteredStickersIds
+    }
+    
 }
