@@ -10,9 +10,7 @@ import UIKit
 
 class Helper {
     static func filePath(forKey key: String, forFormat format: String) -> URL? {
-        let fileManager = FileManager.default
-        guard let documentURL = fileManager.urls(for: .documentDirectory,
-                                                 in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        guard let documentURL = FileManager().containerURL(forSecurityApplicationGroupIdentifier: Constants.APP_GROUP_NAME) else { return nil }
             
         return documentURL.appendingPathComponent("\(key).\(format)")
     }
