@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
+		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
+		9C96B06A2626FE0300A59097 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B0692626FE0300A59097 /* blender.json */; };
 		9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1532605547A004EEF75 /* AppDelegate.swift */; };
 		9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1552605547A004EEF75 /* SceneDelegate.swift */; };
 		9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1572605547A004EEF75 /* ViewController.swift */; };
@@ -60,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
+		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		9CAEA1502605547A004EEF75 /* FaceStickerMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceStickerMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEA1532605547A004EEF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CAEA1552605547A004EEF75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C96B0642626FCDC00A59097 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C96B0682626FCFA00A59097 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				9C96B0692626FE0300A59097 /* blender.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		9CAEA1472605547A004EEF75 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +159,7 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9C96B0682626FCFA00A59097 /* Lottie */,
 				9CAEA28E26108C73004EEF75 /* Dependencies */,
 				9CAEA27326107DA4004EEF75 /* Factories */,
 				9CAEA24C260E7C48004EEF75 /* Services */,
@@ -305,6 +318,9 @@
 			dependencies = (
 			);
 			name = FaceStickerMaker;
+			packageProductDependencies = (
+				9C96B0632626FCDC00A59097 /* Lottie */,
+			);
 			productName = FaceStickerMaker;
 			productReference = 9CAEA1502605547A004EEF75 /* FaceStickerMaker.app */;
 			productType = "com.apple.product-type.application";
@@ -376,6 +392,9 @@
 				Base,
 			);
 			mainGroup = 9CAEA1472605547A004EEF75;
+			packageReferences = (
+				9C96B0622626FCDC00A59097 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 9CAEA1512605547A004EEF75 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CAEA1602605547D004EEF75 /* LaunchScreen.storyboard in Resources */,
+				9C96B06A2626FE0300A59097 /* blender.json in Resources */,
 				9CAEA15D2605547D004EEF75 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +810,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9C96B0622626FCDC00A59097 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9C96B0632626FCDC00A59097 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9C96B0622626FCDC00A59097 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9CAEA1482605547A004EEF75 /* Project object */;
 }

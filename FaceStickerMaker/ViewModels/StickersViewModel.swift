@@ -10,12 +10,13 @@ import Foundation
 enum StickersViewMode {
     case normal
     case selecting
+    case blending
 }
 
 class StickersViewModel {
     
     @Published private(set) var stickers = [FaceImage]()
-    @Published private(set) var currentViewMode = StickersViewMode.normal
+    @Published var currentViewMode = StickersViewMode.normal
     @Published var canDeleteStickers = false
 
     var indexPathOfSelectedStickers = Set<IndexPath>()
@@ -28,15 +29,6 @@ class StickersViewModel {
     
     func getStickers() {
         stickers = stickerService.getStickers()
-    }
-    
-    func changeViewMode() {
-        switch currentViewMode {
-        case .normal:
-            currentViewMode = .selecting
-        case .selecting:
-            currentViewMode = .normal
-        }
     }
     
     func removeSelectedStickers() {

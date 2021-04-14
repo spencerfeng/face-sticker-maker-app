@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import PhotosUI
 import Combine
+import Lottie
 
 class StickersViewController: UIViewController {
     
@@ -62,6 +63,24 @@ class StickersViewController: UIViewController {
         return btn
     }()
     
+    var blenderHUDOverlay: UIView = {
+        let overlay = UIView(frame: .zero)
+        overlay.isHidden = true
+        overlay.backgroundColor = .blue
+        return overlay
+    }()
+    
+    var blenderHUD: AnimationView = {
+        let animationView = AnimationView()
+        animationView.isHidden = false
+        animationView.animation = Animation.named("blender")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        
+        return animationView
+    }()
+    
     lazy var stickersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: gridSpacing, left: gridSpacing, bottom: gridSpacing, right: gridSpacing)
@@ -97,6 +116,12 @@ class StickersViewController: UIViewController {
         view.addSubview(stickersCollectionView)
         stickersCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
+        view.addSubview(blenderHUDOverlay)
+        blenderHUDOverlay.translatesAutoresizingMaskIntoConstraints = false
+        
+        blenderHUDOverlay.addSubview(blenderHUD)
+        blenderHUD.translatesAutoresizingMaskIntoConstraints = false
+        
         viewModel.getStickers()
         
         bindUI()
@@ -114,7 +139,17 @@ class StickersViewController: UIViewController {
             stickersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stickersCollectionView.topAnchor.constraint(equalTo: topNavigationBar.bottomAnchor),
             stickersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stickersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            stickersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            blenderHUDOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            blenderHUDOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            blenderHUDOverlay.topAnchor.constraint(equalTo: view.topAnchor),
+            blenderHUDOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            blenderHUD.widthAnchor.constraint(equalToConstant: 250),
+            blenderHUD.heightAnchor.constraint(equalToConstant: 250),
+            blenderHUD.centerXAnchor.constraint(equalTo: blenderHUDOverlay.centerXAnchor),
+            blenderHUD.centerYAnchor.constraint(equalTo: blenderHUDOverlay.centerYAnchor)
         ])
     }
     
@@ -152,6 +187,8 @@ class StickersViewController: UIViewController {
                 if let self = self {
                     switch value {
                     case .normal:
+                        self.blenderHUDOverlay.isHidden = true
+                        
                         // set the title of the left top navigation button
                         self.stickersSelectionActionBtn.setTitle("Select", for: .normal)
                         
@@ -168,6 +205,8 @@ class StickersViewController: UIViewController {
                         self.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.addStickersBtn)
                         
                     case .selecting:
+                        self.blenderHUDOverlay.isHidden = true
+                        
                         // set the title of the left top navigation button
                         self.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
                         
@@ -176,6 +215,9 @@ class StickersViewController: UIViewController {
                         
                         // disable delete stickers button
                         self.viewModel.canDeleteStickers = false
+                    
+                    case .blending:
+                        self.blenderHUDOverlay.isHidden = false
                     }
                 }
             }.store(in: &subscriptions)
@@ -210,17 +252,24 @@ class StickersViewController: UIViewController {
     private func handleDeleteStickersBtnClick() {
         viewModel.removeSelectedStickers()
         viewModel.indexPathOfSelectedStickers.removeAll()
-        viewModel.changeViewMode()
+        viewModel.currentViewMode = .normal
     }
     
     @objc
     private func handleStickersSelectionActionBtnClick() {
-        viewModel.changeViewMode()
+        if viewModel.currentViewMode == .normal {
+            viewModel.currentViewMode = .selecting
+        } else if viewModel.currentViewMode == .selecting {
+            viewModel.currentViewMode = .normal
+        }
+        
     }
 }
 
 extension StickersViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        blenderHUDOverlay.isHidden = false
+        
         picker.dismiss(animated: true, completion: nil)
         
         let group = DispatchGroup()
@@ -260,6 +309,8 @@ extension StickersViewController: PHPickerViewControllerDelegate {
         }
         
         group.notify(queue: .main) {
+            self.blenderHUDOverlay.isHidden = true
+            
             if !faceImages.isEmpty {
                 let chooseCroppedImagesVC = self.factory.makeChooseCroppedImagesViewController(with: faceImages)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
