@@ -20,14 +20,14 @@ class StickersViewModel {
 
     var indexPathOfSelectedStickers = Set<IndexPath>()
     
-    let stickerRepository: StickerRepository
+    let stickerService: StickerService
     
-    init(stickerRepository: StickerRepository) {
-        self.stickerRepository = stickerRepository
+    init(stickerService: StickerService) {
+        self.stickerService = stickerService
     }
     
     func getStickers() {
-        stickers = stickerRepository.getStickers()
+        stickers = stickerService.getStickers()
     }
     
     func changeViewMode() {
@@ -44,7 +44,7 @@ class StickersViewModel {
             return self.stickers[indexPath.row]
         }
         
-        let idsOfRemovedStickers = stickerRepository.removeStickers(stickers: stickersToRemove)
+        let idsOfRemovedStickers = stickerService.removeStickers(stickers: stickersToRemove)
         
         stickers = stickers.filter { idsOfRemovedStickers.contains($0.id) }
     }
