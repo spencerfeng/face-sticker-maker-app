@@ -31,7 +31,7 @@ class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
     }
     
     func saveStickers() {
-        let addedStickers = stickerRepository.saveStickers(stickers: selectedFaceImages)
+        let addedStickers = stickerRepository.addStickers(stickers: selectedFaceImages)
         addStickersResponder.handleAddedStickers(newStickers: addedStickers)
     }
     
