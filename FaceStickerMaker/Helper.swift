@@ -7,14 +7,9 @@
 
 import Foundation
 import UIKit
+import SharingStickersFramework
 
 class Helper {
-    static func filePath(forKey key: String, forFormat format: String) -> URL? {
-        guard let documentURL = FileManager().containerURL(forSecurityApplicationGroupIdentifier: Constants.APP_GROUP_NAME) else { return nil }
-            
-        return documentURL.appendingPathComponent("\(key).\(format)")
-    }
-    
     static func resizeImage(image: CGImage, size: CGSize, radius: CGFloat = 0, orientation: UIImage.Orientation = .up) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
         let resizedImage = renderer.image { _ in

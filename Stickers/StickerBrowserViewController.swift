@@ -7,6 +7,7 @@
 
 import UIKit
 import Messages
+import SharingStickersFramework
 
 class StickerBrowserViewController: MSStickerBrowserViewController {
     var stickers = [MSSticker]()
@@ -23,8 +24,8 @@ class StickerBrowserViewController: MSStickerBrowserViewController {
     }
     
     func loadStickers() {
-        if let userDefaults = UserDefaults.init(suiteName: Constants.APP_GROUP_NAME) {
-            let stickerIds = (userDefaults.array(forKey: Constants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String]) ?? [String]()
+        if let userDefaults = UserDefaults.init(suiteName: SharedConstants.APP_GROUP_NAME) {
+            let stickerIds = (userDefaults.array(forKey: SharedConstants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String]) ?? [String]()
             
             for stickerId in stickerIds {
                 createSticker(stickerId: stickerId)
@@ -33,7 +34,7 @@ class StickerBrowserViewController: MSStickerBrowserViewController {
     }
     
     func createSticker(stickerId: String) {
-        guard let url = filePath(forKey: stickerId) else { return }
+        guard let url = SharedHelper.filePath(forKey: stickerId, forFormat: "png") else { return }
         
         do {
             let sticker = try MSSticker(contentsOfFileURL: url, localizedDescription: "Face Sticker")
@@ -41,12 +42,6 @@ class StickerBrowserViewController: MSStickerBrowserViewController {
         } catch {
             print(error)
         }
-    }
-    
-    func filePath(forKey key: String) -> URL? {
-        guard let documentsDirectory = FileManager().containerURL(forSecurityApplicationGroupIdentifier: Constants.APP_GROUP_NAME) else { return nil }
-        
-        return documentsDirectory.appendingPathComponent(key + ".png")
     }
 }
 
