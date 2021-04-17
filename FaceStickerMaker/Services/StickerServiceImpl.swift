@@ -14,7 +14,6 @@ class StickerServiceImpl: StickerService {
         return addStickersToUserDefaults(stickers: stickers)
     }
     
-    // TODO: needs to do error handling instead of returning an empty array
     func getStickers() -> [FaceImage] {
         if let userDefaults = UserDefaults.init(suiteName: SharedConstants.APP_GROUP_NAME) {
             let stickerIds = userDefaults.array(forKey: SharedConstants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
@@ -27,10 +26,9 @@ class StickerServiceImpl: StickerService {
             }
         }
         
-        return [FaceImage]()
+        fatalError("Failed to find the shared UserDefaults")
     }
     
-    // TODO: needs to do error handling instead of returning an empty array
     func removeStickers(stickers: [FaceImage]) -> [String] {
         if let userDefaults = UserDefaults.init(suiteName: SharedConstants.APP_GROUP_NAME) {
             let idsOfStickersToRemove = stickers.map { $0.id }
@@ -43,7 +41,8 @@ class StickerServiceImpl: StickerService {
             
             return filteredStickersIds
         }
-        return [String]()
+        
+        fatalError("Failed to find the shared UserDefaults")
     }
     
     private func saveStickerDataToFileSystem(sticker: FaceImage) -> String? {
@@ -58,7 +57,6 @@ class StickerServiceImpl: StickerService {
         }
     }
     
-    // TODO: needs to do error handling instead of returning an empty array
     private func addStickersToUserDefaults(stickers: [FaceImage]) -> [FaceImage] {
         if let userDefaults = UserDefaults.init(suiteName: SharedConstants.APP_GROUP_NAME) {
             var existingStickersIds = userDefaults.array(
@@ -80,7 +78,7 @@ class StickerServiceImpl: StickerService {
             }
         }
         
-        return [FaceImage]()
+        fatalError("Failed to find the shared UserDefaults")
     }
     
 }
