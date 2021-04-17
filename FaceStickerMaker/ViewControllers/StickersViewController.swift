@@ -292,9 +292,10 @@ extension StickersViewController: PHPickerViewControllerDelegate {
                             for cgImage in cgImages {
                                 let uiImage = Helper.resizeImage(
                                     image: cgImage,
-                                    size: CGSize(width: 70, height: 70),
+                                    size: CGSize(width: 100, height: 100),
                                     radius: 5,
-                                    orientation: image.imageOrientation
+                                    orientation: image.imageOrientation,
+                                    maxSize: 500
                                 )
                                 
                                 faceImages.append(FaceImage(id: UUID().uuidString, image: uiImage.pngData()))
