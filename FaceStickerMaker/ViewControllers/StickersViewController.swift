@@ -296,7 +296,7 @@ extension StickersViewController: PHPickerViewControllerDelegate {
                                 let uiImage = Helper.resizeImage(
                                     image: cgImage,
                                     size: CGSize(width: 100, height: 100),
-                                    radius: 5,
+                                    radius: Constants.STICKER_CORNER_RADIUS,
                                     orientation: image.imageOrientation,
                                     maxSize: 500
                                 )

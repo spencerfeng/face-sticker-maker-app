@@ -21,7 +21,7 @@ class SelectFaceImageTableViewCell: UITableViewCell {
     var faceImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = Constants.STICKER_CORNER_RADIUS
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

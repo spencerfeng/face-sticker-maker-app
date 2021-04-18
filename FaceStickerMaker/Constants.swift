@@ -6,5 +6,8 @@
 //
 
 import Foundation
+import UIKit
 
-struct Constants {}
+struct Constants {
+    static let STICKER_CORNER_RADIUS: CGFloat = 10
+}
