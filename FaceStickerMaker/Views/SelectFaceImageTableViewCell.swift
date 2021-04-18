@@ -86,10 +86,10 @@ class SelectFaceImageTableViewCell: UITableViewCell {
             .sink { [weak self] value in
                 if value {
                     self?.actionBtn.setTitle("Discard", for: .normal)
-                    self?.actionBtn.backgroundColor = .red
+                    self?.actionBtn.backgroundColor = .systemRed
                 } else {
                     self?.actionBtn.setTitle("Keep", for: .normal)
-                    self?.actionBtn.backgroundColor = .green
+                    self?.actionBtn.backgroundColor = .systemGreen
                 }
             }.store(in: &subscriptions)
     }

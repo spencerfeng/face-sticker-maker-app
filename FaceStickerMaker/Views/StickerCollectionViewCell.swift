@@ -34,6 +34,7 @@ class StickerCollectionViewCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         let image = UIImage(systemName: "checkmark.circle.fill")
         imageView.image = image
+        imageView.tintColor = .systemBlue
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView

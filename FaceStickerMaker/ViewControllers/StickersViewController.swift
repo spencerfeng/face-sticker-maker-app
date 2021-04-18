@@ -44,6 +44,7 @@ class StickersViewController: UIViewController {
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
         btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
+        btn.tintColor = .systemBlue
         return btn
     }()
     
@@ -53,12 +54,13 @@ class StickersViewController: UIViewController {
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
         btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
+        btn.tintColor = .systemRed
         return btn
     }()
     
     var stickersSelectionActionBtn: UIButton = {
         let btn = UIButton()
-        btn.setTitleColor(.blue, for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
         return btn
     }()
@@ -66,7 +68,7 @@ class StickersViewController: UIViewController {
     var blenderHUDOverlay: UIView = {
         let overlay = UIView(frame: .zero)
         overlay.isHidden = true
-        overlay.backgroundColor = .blue
+        overlay.backgroundColor = .systemBackground
         return overlay
     }()
     
@@ -87,7 +89,7 @@ class StickersViewController: UIViewController {
         layout.minimumLineSpacing = gridSpacing
         layout.minimumInteritemSpacing = gridSpacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .systemGray6
         return collectionView
     }()
     
@@ -105,7 +107,7 @@ class StickersViewController: UIViewController {
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         setupNavigationBarItems()
         setupCollectionView()

@@ -20,8 +20,9 @@ class ChooseCroppedImagesViewController: UIViewController {
     var topNavigationBar: UINavigationBar = {
         let navigationBar = UINavigationBar()
         
-        navigationBar.backgroundColor = .white
-        navigationBar.isTranslucent = false
+        navigationBar.backgroundColor = .systemBackground
+        navigationBar.isTranslucent = true
+        navigationBar.setValue(false, forKey: "hidesShadow")
         
         return navigationBar
     }()
@@ -29,14 +30,14 @@ class ChooseCroppedImagesViewController: UIViewController {
     var cancelBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Cancel", for: .normal)
-        btn.setTitleColor(.blue, for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
         return btn
     }()
     
     var saveBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Save", for: .normal)
-        btn.setTitleColor(.blue, for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
         return btn
     }()
     
