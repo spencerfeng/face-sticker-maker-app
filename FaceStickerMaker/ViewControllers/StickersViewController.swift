@@ -137,6 +137,7 @@ class StickersViewController: UIViewController {
             topNavigationBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
             topNavigationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
             topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0),
+            // note: we do not need to set the height of topNavigationBar explicitly, since it has its inherent value
             
             stickersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stickersCollectionView.topAnchor.constraint(equalTo: topNavigationBar.bottomAnchor),

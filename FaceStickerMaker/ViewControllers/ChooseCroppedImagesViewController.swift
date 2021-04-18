@@ -79,7 +79,7 @@ class ChooseCroppedImagesViewController: UIViewController {
             topNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topNavigationBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
             topNavigationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            topNavigationBar.heightAnchor.constraint(equalToConstant: 44.0),
+            // note: we do not need to set the height of topNavigationBar explicitly, since it has its inherent value
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
