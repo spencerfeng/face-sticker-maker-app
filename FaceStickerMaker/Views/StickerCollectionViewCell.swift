@@ -40,6 +40,17 @@ class StickerCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    var stickerSelectedOverlay: UIView = {
+        let overlay = UIView(frame: .zero)
+        overlay.layer.cornerRadius = Constants.STICKER_CORNER_RADIUS
+        overlay.isHidden = true
+        overlay.backgroundColor = .white
+        overlay.alpha = 0.7
+        overlay.translatesAutoresizingMaskIntoConstraints = false
+        
+        return overlay
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -58,6 +69,11 @@ class StickerCollectionViewCell: UICollectionViewCell {
             stickerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stickerImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
+            stickerSelectedOverlay.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stickerSelectedOverlay.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stickerSelectedOverlay.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stickerSelectedOverlay.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
             checkmarkImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
             checkmarkImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
             checkmarkImageView.widthAnchor.constraint(equalToConstant: 20),
@@ -67,6 +83,7 @@ class StickerCollectionViewCell: UICollectionViewCell {
     
     func setupViews() {
         contentView.addSubview(stickerImageView)
+        contentView.addSubview(stickerSelectedOverlay)
         contentView.addSubview(checkmarkImageView)
     }
     
@@ -84,6 +101,7 @@ class StickerCollectionViewCell: UICollectionViewCell {
             .$isSelected
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
+                self?.stickerSelectedOverlay.isHidden = !value
                 self?.checkmarkImageView.isHidden = !value
             }.store(in: &subscriptions)
     }
