@@ -40,7 +40,11 @@ class MockStickerService: StickerService {
     }
     
     func removeStickers(stickers: [FaceImage]) -> [String] {
-        return ["stickerImg1"]
+        let idsOfStickersToRemove = stickers.map { $0.id }
+        
+        return allStickers
+            .map { $0.id }
+            .filter { !idsOfStickersToRemove.contains($0) }
     }
     
 }

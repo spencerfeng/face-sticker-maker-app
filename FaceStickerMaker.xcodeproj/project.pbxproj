@@ -16,6 +16,7 @@
 		9C54E3AF262D39FB0016AFE5 /* stickerImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C54E3AE262D39FB0016AFE5 /* stickerImg2.png */; };
 		9C54E3B7262D41870016AFE5 /* MockAddStickersResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3B6262D41870016AFE5 /* MockAddStickersResponder.swift */; };
 		9C54E3BC262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3BB262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift */; };
+		9C54E3C4262D6D090016AFE5 /* StickersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3C3262D6D090016AFE5 /* StickersViewModelTests.swift */; };
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
 		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
 		9C96B06A2626FE0300A59097 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B0692626FE0300A59097 /* blender.json */; };
@@ -155,6 +156,7 @@
 		9C54E3AE262D39FB0016AFE5 /* stickerImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerImg2.png; sourceTree = "<group>"; };
 		9C54E3B6262D41870016AFE5 /* MockAddStickersResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddStickersResponder.swift; sourceTree = "<group>"; };
 		9C54E3BB262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewModelTests.swift; sourceTree = "<group>"; };
+		9C54E3C3262D6D090016AFE5 /* StickersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewModelTests.swift; sourceTree = "<group>"; };
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
 		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		9C96B06E2627086B00A59097 /* FaceStickerMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceStickerMaker.entitlements; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				9C54E3BB262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift */,
+				9C54E3C3262D6D090016AFE5 /* StickersViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -797,6 +800,7 @@
 			files = (
 				9C54E3B7262D41870016AFE5 /* MockAddStickersResponder.swift in Sources */,
 				9C54E3BC262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift in Sources */,
+				9C54E3C4262D6D090016AFE5 /* StickersViewModelTests.swift in Sources */,
 				9C54E392262D15BF0016AFE5 /* MockStickerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
