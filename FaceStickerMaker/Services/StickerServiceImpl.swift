@@ -35,11 +35,11 @@ class StickerServiceImpl: StickerService {
             let existingStickersIds = userDefaults.array(
                 forKey: SharedConstants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS) as? [String] ?? [String]()
             
-            let filteredStickersIds = existingStickersIds.filter { !idsOfStickersToRemove.contains($0) }
+            let idsOfStickersAfterRemoval = existingStickersIds.filter { !idsOfStickersToRemove.contains($0) }
             
-            userDefaults.set(filteredStickersIds, forKey: SharedConstants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS)
+            userDefaults.set(idsOfStickersAfterRemoval, forKey: SharedConstants.USER_DEFAULTS_KEY_FOR_EXISTING_STICKERS_IDS)
             
-            return filteredStickersIds
+            return idsOfStickersAfterRemoval
         }
         
         fatalError("Failed to find the shared UserDefaults")

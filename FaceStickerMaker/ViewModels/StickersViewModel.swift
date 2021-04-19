@@ -36,9 +36,9 @@ class StickersViewModel {
             return self.stickers[indexPath.row]
         }
         
-        let idsOfRemovedStickers = stickerService.removeStickers(stickers: stickersToRemove)
+        let idsOfStickersAfterRemoval = stickerService.removeStickers(stickers: stickersToRemove)
         
-        stickers = stickers.filter { idsOfRemovedStickers.contains($0.id) }
+        stickers = stickers.filter { idsOfStickersAfterRemoval.contains($0.id) }
     }
 
 }
