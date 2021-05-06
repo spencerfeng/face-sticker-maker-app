@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SharingStickersFramework
 
 class StickerServiceImpl: StickerService {
     

@@ -7,7 +7,6 @@
 
 import UIKit
 import Messages
-import SharingStickersFramework
 
 class StickerBrowserViewController: MSStickerBrowserViewController {
     var stickers = [MSSticker]()

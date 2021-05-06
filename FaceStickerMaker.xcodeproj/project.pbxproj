@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C54E3832629BCDE0016AFE5 /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3822629BCDE0016AFE5 /* SharedHelper.swift */; };
 		9C54E392262D15BF0016AFE5 /* MockStickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E391262D15BF0016AFE5 /* MockStickerService.swift */; };
 		9C54E3A1262D397A0016AFE5 /* stickerImg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C54E39C262D397A0016AFE5 /* stickerImg3.png */; };
 		9C54E3A2262D397A0016AFE5 /* stickerImg5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C54E39D262D397A0016AFE5 /* stickerImg5.png */; };
@@ -17,6 +16,10 @@
 		9C54E3B7262D41870016AFE5 /* MockAddStickersResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3B6262D41870016AFE5 /* MockAddStickersResponder.swift */; };
 		9C54E3BC262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3BB262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift */; };
 		9C54E3C4262D6D090016AFE5 /* StickersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E3C3262D6D090016AFE5 /* StickersViewModelTests.swift */; };
+		9C6CB59426440A7B0072C2DF /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59326440A7B0072C2DF /* SharedConstants.swift */; };
+		9C6CB59526440A840072C2DF /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59326440A7B0072C2DF /* SharedConstants.swift */; };
+		9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
+		9C6CB59826440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
 		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
 		9C96B06A2626FE0300A59097 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B0692626FE0300A59097 /* blender.json */; };
@@ -25,10 +28,6 @@
 		9C96B07F26271A2A00A59097 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B07D26271A2A00A59097 /* MainInterface.storyboard */; };
 		9C96B08126271A2C00A59097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B08026271A2C00A59097 /* Assets.xcassets */; };
 		9C96B09426271EAC00A59097 /* StickerBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B09326271EAC00A59097 /* StickerBrowserViewController.swift */; };
-		9C96B0A82629144A00A59097 /* SharingStickersFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C96B0A62629144A00A59097 /* SharingStickersFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C96B0AC2629144A00A59097 /* SharingStickersFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9C96B0A42629144A00A59097 /* SharingStickersFramework.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9C96B0BB2629150B00A59097 /* SharingStickersFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C96B0A42629144A00A59097 /* SharingStickersFramework.framework */; };
-		9C96B0CE2629160F00A59097 /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B0CD2629160F00A59097 /* SharedConstants.swift */; };
 		9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1532605547A004EEF75 /* AppDelegate.swift */; };
 		9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1552605547A004EEF75 /* SceneDelegate.swift */; };
 		9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA1572605547A004EEF75 /* ViewController.swift */; };
@@ -63,13 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9C96B0A92629144A00A59097 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9CAEA1482605547A004EEF75 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9C96B0A32629144A00A59097;
-			remoteInfo = SharingStickersFramework;
-		};
 		9CAEA1672605547D004EEF75 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9CAEA1482605547A004EEF75 /* Project object */;
@@ -94,17 +86,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9C96B0B02629144A00A59097 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9C96B0AC2629144A00A59097 /* SharingStickersFramework.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9CFFA5EF264281BF009620A7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,7 +100,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C54E3822629BCDE0016AFE5 /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
 		9C54E391262D15BF0016AFE5 /* MockStickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStickerService.swift; sourceTree = "<group>"; };
 		9C54E39C262D397A0016AFE5 /* stickerImg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerImg3.png; sourceTree = "<group>"; };
 		9C54E39D262D397A0016AFE5 /* stickerImg5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerImg5.png; sourceTree = "<group>"; };
@@ -131,6 +111,8 @@
 		9C54E3C3262D6D090016AFE5 /* StickersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersViewModelTests.swift; sourceTree = "<group>"; };
 		9C64B946262EF76D009B5884 /* DevMain.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevMain.xcconfig; sourceTree = "<group>"; };
 		9C64B9752630405C009B5884 /* DevStickers.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevStickers.xcconfig; sourceTree = "<group>"; };
+		9C6CB59326440A7B0072C2DF /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		9C6CB59626440AA90072C2DF /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
 		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		9C96B06E2627086B00A59097 /* FaceStickerMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceStickerMaker.entitlements; sourceTree = "<group>"; };
@@ -143,9 +125,6 @@
 		9C96B08E26271AF600A59097 /* Stickers.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stickers.entitlements; sourceTree = "<group>"; };
 		9C96B09326271EAC00A59097 /* StickerBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerBrowserViewController.swift; sourceTree = "<group>"; };
 		9C96B0A42629144A00A59097 /* SharingStickersFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharingStickersFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C96B0A62629144A00A59097 /* SharingStickersFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharingStickersFramework.h; sourceTree = "<group>"; };
-		9C96B0A72629144A00A59097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C96B0CD2629160F00A59097 /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		9CAEA1502605547A004EEF75 /* FaceSticker (Dev).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FaceSticker (Dev).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAEA1532605547A004EEF75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CAEA1552605547A004EEF75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C96B0BB2629150B00A59097 /* SharingStickersFramework.framework in Frameworks */,
 				9C96B0642626FCDC00A59097 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +251,15 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		9C6CB59226440A480072C2DF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9C6CB59326440A7B0072C2DF /* SharedConstants.swift */,
+				9C6CB59626440AA90072C2DF /* SharedHelper.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		9C96B0682626FCFA00A59097 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,17 +289,6 @@
 			path = Stickers;
 			sourceTree = "<group>";
 		};
-		9C96B0A52629144A00A59097 /* SharingStickersFramework */ = {
-			isa = PBXGroup;
-			children = (
-				9C96B0A62629144A00A59097 /* SharingStickersFramework.h */,
-				9C96B0A72629144A00A59097 /* Info.plist */,
-				9C96B0CD2629160F00A59097 /* SharedConstants.swift */,
-				9C54E3822629BCDE0016AFE5 /* SharedHelper.swift */,
-			);
-			path = SharingStickersFramework;
-			sourceTree = "<group>";
-		};
 		9CAEA1472605547A004EEF75 = {
 			isa = PBXGroup;
 			children = (
@@ -320,7 +296,6 @@
 				9CAEA1692605547D004EEF75 /* FaceStickerMakerTests */,
 				9CAEA1742605547D004EEF75 /* FaceStickerMakerUITests */,
 				9C96B07A26271A2A00A59097 /* Stickers */,
-				9C96B0A52629144A00A59097 /* SharingStickersFramework */,
 				9C96B07726271A2A00A59097 /* Frameworks */,
 				9CAEA1512605547A004EEF75 /* Products */,
 			);
@@ -341,6 +316,7 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9C6CB59226440A480072C2DF /* Shared */,
 				9CFFA59526426A88009620A7 /* AppDependencies */,
 				9C64B944262EF3C9009B5884 /* Configuration */,
 				9C96B06E2627086B00A59097 /* FaceStickerMaker.entitlements */,
@@ -494,7 +470,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C96B0A82629144A00A59097 /* SharingStickersFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,13 +519,11 @@
 				9CAEA14D2605547A004EEF75 /* Frameworks */,
 				9CAEA14E2605547A004EEF75 /* Resources */,
 				9CAEA18C260570D4004EEF75 /* ShellScript */,
-				9C96B0B02629144A00A59097 /* Embed Frameworks */,
 				9CFFA5EF264281BF009620A7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9C96B0AA2629144A00A59097 /* PBXTargetDependency */,
 				9CFFA5EE264281BF009620A7 /* PBXTargetDependency */,
 			);
 			name = FaceStickerMaker;
@@ -724,7 +697,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C6CB59826440AA90072C2DF /* SharedHelper.swift in Sources */,
 				9C96B07C26271A2A00A59097 /* MessagesViewController.swift in Sources */,
+				9C6CB59526440A840072C2DF /* SharedConstants.swift in Sources */,
 				9C96B09426271EAC00A59097 /* StickerBrowserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,8 +708,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C54E3832629BCDE0016AFE5 /* SharedHelper.swift in Sources */,
-				9C96B0CE2629160F00A59097 /* SharedConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +729,7 @@
 				9CAEA236260C98DB004EEF75 /* SelectFaceImageToggleResponder.swift in Sources */,
 				9CAEA262260FF04E004EEF75 /* StickerCollectionViewCell.swift in Sources */,
 				9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */,
+				9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */,
 				9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */,
@@ -767,6 +741,7 @@
 				9CFFA59726426AA6009620A7 /* AppDependencyContainer.swift in Sources */,
 				9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */,
 				9CAEA1BC26074D29004EEF75 /* RoutingTransition.swift in Sources */,
+				9C6CB59426440A7B0072C2DF /* SharedConstants.swift in Sources */,
 				9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */,
 				9CAEA21F2609A319004EEF75 /* SelectFaceImageTableViewCell.swift in Sources */,
 				9CAEA1C126074DC0004EEF75 /* RoutingModalTransition.swift in Sources */,
@@ -795,11 +770,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9C96B0AA2629144A00A59097 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9C96B0A32629144A00A59097 /* SharingStickersFramework */;
-			targetProxy = 9C96B0A92629144A00A59097 /* PBXContainerItemProxy */;
-		};
 		9CAEA1682605547D004EEF75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9CAEA14F2605547A004EEF75 /* FaceStickerMaker */;

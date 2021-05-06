@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SharingStickersFramework
 
 class Helper {
     static func resizeImage(image: CGImage, size: CGSize, radius: CGFloat = 0, orientation: UIImage.Orientation = .up, maxSize: Double, decrementStep: CGFloat = 10.0) -> UIImage {

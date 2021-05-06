@@ -1,8 +1,8 @@
 //
 //  SharedConstants.swift
-//  SharingStickersFramework
+//  FaceStickerMaker
 //
-//  Created by Spencer Feng on 16/4/21.
+//  Created by Spencer Feng on 6/5/21.
 //
 
 import Foundation
