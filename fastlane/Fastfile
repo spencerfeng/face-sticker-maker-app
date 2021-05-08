@@ -23,4 +23,10 @@ platform :ios do
     # add actions here: https://docs.fastlane.tools/actions
     scan
   end
+
+  desc "Setup provisioning profiles and certificates"
+  lane :bootstrap do
+    match(type: "development", app_identifier: "au.com.incrementaldigital.FaceStickerMaker.dev")
+    match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker")
+  end
 end

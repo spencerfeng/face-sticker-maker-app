@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios test
 ```
 Description of what the lane does
+### ios bootstrap
+```
+fastlane ios bootstrap
+```
+Setup provisioning profiles and certificates
 
 ----
 
