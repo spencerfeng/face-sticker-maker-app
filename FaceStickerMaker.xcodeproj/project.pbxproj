@@ -759,7 +759,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C5B1F28264695040003AE0A /* ProdStickers.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = Stickers/Stickers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XHT3APZP2;
@@ -1033,7 +1033,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C64B9752630405C009B5884 /* DevStickers.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(inherited)";
 				CODE_SIGN_ENTITLEMENTS = Stickers/Stickers.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6XHT3APZP2;
