@@ -242,7 +242,8 @@ class StickersViewController: UIViewController {
     private func handleAddStickersBtnClick() {
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
-        configuration.selectionLimit = 10
+        configuration.selectionLimit = 1
+        configuration.preferredAssetRepresentationMode = .current
         
         let photoPickerVC = PHPickerViewController(configuration: configuration)
         photoPickerVC.delegate = self
