@@ -1,0 +1,4 @@
+Automatically cut out faces from photos and make them available as stickers in your iMessage app. 
+
+1. Add a photo from your gallery.
+2. Select faces you want to use as stickers in iMessage app
