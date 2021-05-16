@@ -20,12 +20,22 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios test
 ```
-Description of what the lane does
+Run unit tests
 ### ios bootstrap
 ```
 fastlane ios bootstrap
 ```
 Setup provisioning profiles and certificates
+### ios beta
+```
+fastlane ios beta
+```
+Push a new beta build to TestFlight
+### ios prod
+```
+fastlane ios prod
+```
+Release the most recent beta build
 
 ----
 
