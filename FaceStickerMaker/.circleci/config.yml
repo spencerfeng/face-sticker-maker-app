@@ -1,0 +1,88 @@
+version: 2.1
+jobs:
+  build-and-test:
+    macos:
+      xcode: 12.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: test
+
+    steps:
+      - checkout
+      - run:
+          command: bundle check || bundle install
+
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+
+      - store_artifacts:
+          path: output/FaceStickerMaker.ipa
+
+      - store_test_results:
+          path: output/scan
+
+  beta:
+    macos:
+      xcode: 12.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: beta
+
+    steps:
+      - checkout
+      - run:
+          command: bundle check || bundle install
+
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+
+      - store_artifacts:
+          path: output/FaceStickerMaker.ipa
+
+  prod:
+    macos:
+      xcode: 12.0.0
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: prod
+
+    steps:
+      - checkout
+      - run:
+          command: bundle install
+
+      - run:
+          name: Fastlane
+          command: bundle exec fastlane $FASTLANE_LANE
+
+workflows:
+  version: 2.1
+  build-test-beta-release:
+    jobs:
+      - hold:
+          type: approval
+          filters:
+            branches:
+              only: /^release\/*/
+
+      - build-and-test:
+          filters:
+            branches:
+              only:
+                - develop
+                - /^release\/*/
+
+      - beta:
+          requires:
+            - build-and-test
+          filters:
+            branches:
+              only: /^release\/*/
+      - prod:
+          requires:
+            - ios-hold
+          filters:
+            branches:
+              only: /^release\/*/
