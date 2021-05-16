@@ -82,7 +82,7 @@ workflows:
               only: /^release\/*/
       - prod:
           requires:
-            - ios-hold
+            - hold
           filters:
             branches:
               only: /^release\/*/
