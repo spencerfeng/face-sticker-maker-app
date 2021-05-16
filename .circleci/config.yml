@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build-and-test:
     macos:
-      xcode: 12.0.0
+      xcode: 12.4.0
     environment:
       FL_OUTPUT_DIR: output
       FASTLANE_LANE: test
@@ -28,7 +28,7 @@ jobs:
 
   beta:
     macos:
-      xcode: 12.0.0
+      xcode: 12.4.0
     environment:
       FL_OUTPUT_DIR: output
       FASTLANE_LANE: beta
@@ -51,7 +51,7 @@ jobs:
 
   prod:
     macos:
-      xcode: 12.0.0
+      xcode: 12.4.0
     environment:
       FL_OUTPUT_DIR: output
       FASTLANE_LANE: prod
