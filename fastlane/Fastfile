@@ -47,7 +47,7 @@ platform :ios do
   desc "Release the most recent beta build"
   lane :prod do
     deliver(
-      build_number: latest_testfligh_build_number.to_s,
+      build_number: latest_testflight_build_number.to_s,
       submit_for_review: true,
       automatic_release: true,
       force: true,
