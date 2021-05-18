@@ -92,6 +92,7 @@ workflows:
           filters:
             branches:
               only: /^release\/*/
+
       - prod:
           requires:
             - hold
