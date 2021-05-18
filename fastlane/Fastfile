@@ -53,7 +53,10 @@ platform :ios do
       force: true,
       skip_metadata: true,
       skip_screenshots: true,
-      skip_binary_upload: false
+      skip_binary_upload: false,
+      submission_information: {
+        add_id_info_uses_idfa: false
+      }
     )
   end
 end
