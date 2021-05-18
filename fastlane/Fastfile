@@ -35,7 +35,7 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    match(type:'appstore')
+    match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker")
     build_app(scheme: "FaceStickerMaker")
     upload_to_testflight
     increment_build_number
