@@ -84,11 +84,11 @@ workflows:
             branches:
               only:
                 - develop
-                - /release\/1.0.0/
+                # - /release\/1.0.0/
 
       - beta:
-          requires:
-            - build-and-test
+          # requires:
+          # - build-and-test
           filters:
             branches:
               only: /release\/1.0.0/
