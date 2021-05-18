@@ -30,12 +30,15 @@ platform :ios do
   desc "Setup provisioning profiles and certificates"
   lane :bootstrap do
     match(type: "development", app_identifier: "au.com.incrementaldigital.FaceStickerMaker.dev")
+    match(type: "development", app_identifier: "au.com.incrementaldigital.FaceStickerMaker.dev.Stickers")
     match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker")
+    match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker.Stickers")
   end
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker")
+    match(type: "appstore", app_identifier: "au.com.incrementaldigital.FaceStickerMaker.Stickers")
     build_app(scheme: "FaceStickerMaker")
     upload_to_testflight
     increment_build_number
