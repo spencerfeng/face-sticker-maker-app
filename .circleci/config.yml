@@ -77,25 +77,25 @@ workflows:
           type: approval
           filters:
             branches:
-              only: /^release\/*/
+              only: /release\/1.0.0/
 
       - build-and-test:
           filters:
             branches:
               only:
                 - develop
-                - /^release\/*/
+                - /release\/1.0.0/
 
       - beta:
           requires:
             - build-and-test
           filters:
             branches:
-              only: /^release\/*/
+              only: /release\/1.0.0/
 
       - prod:
           requires:
             - hold
           filters:
             branches:
-              only: /^release\/*/
+              only: /release\/1.0.0/
