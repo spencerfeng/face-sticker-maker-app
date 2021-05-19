@@ -73,28 +73,29 @@ workflows:
   version: 2.1
   build-test-beta-release:
     jobs:
-      - hold:
-          type: approval
-          filters:
-            branches:
-              only: /^release\/*/
+      # - hold:
+      #     type: approval
+      #     filters:
+      #       branches:
+      #         only: /release\/1.0.0/
 
-      - build-and-test:
-          filters:
-            branches:
-              only:
-                - develop
-                - /^release\/*/
+      # - build-and-test:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - develop
+      # - /release\/1.0.0/
 
-      - beta:
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only: /^release\/*/
+      # - beta:
+      # requires:
+      # - build-and-test
+      # filters:
+      #   branches:
+      #     only: /release\/1.0.0/
+
       - prod:
-          requires:
-            - hold
+          # requires:
+          #   - hold
           filters:
             branches:
-              only: /^release\/*/
+              only: /release\/1.0.0/
