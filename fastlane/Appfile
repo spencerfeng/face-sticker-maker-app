@@ -1,0 +1,6 @@
+app_identifier("au.com.incrementaldigital.FaceStickerMaker") # The bundle identifier of your app
+apple_id("spencer.feng@icloud.com") # Your Apple email address
+
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
