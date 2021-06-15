@@ -11,7 +11,7 @@ import PhotosUI
 import Combine
 import Lottie
 
-class StickersViewController: UIViewController {
+class StickersViewController: UIViewController, UINavigationControllerDelegate {
     
     typealias Factory = ViewControllerFactory & StickersCollectionViewCellVMFactory
     
@@ -240,15 +240,11 @@ class StickersViewController: UIViewController {
     
     @objc
     private func handleAddStickersBtnClick() {
-        var configuration = PHPickerConfiguration()
-        configuration.filter = .images
-        configuration.selectionLimit = 1
-        configuration.preferredAssetRepresentationMode = .current
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.sourceType = .photoLibrary
+        imagePickerVC.delegate = self
         
-        let photoPickerVC = PHPickerViewController(configuration: configuration)
-        photoPickerVC.delegate = self
-        
-        self.present(photoPickerVC, animated: true, completion: nil)
+        self.present(imagePickerVC, animated: true, completion: nil)
     }
     
     @objc
@@ -269,57 +265,52 @@ class StickersViewController: UIViewController {
     }
 }
 
-extension StickersViewController: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+extension StickersViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         blenderHUDOverlay.isHidden = false
-        
         picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+              let uncroppedCgImage = image.cgImage else {
+            blenderHUDOverlay.isHidden = true
+            return
+        }
         
         let group = DispatchGroup()
         var faceImages = [FaceImage]()
         
-        for result in results {
-            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
-                group.enter()
-                result.itemProvider.loadObject(ofClass: UIImage.self) { image, _ in
-                    defer { group.leave() }
+        group.enter()
+        uncroppedCgImage.faceCrop { result in
+            defer { group.leave() }
+            
+            switch result {
+            case .success(let cgImages):
+                for cgImage in cgImages {
+                    let uiImage = Helper.resizeImage(
+                        image: cgImage,
+                        size: CGSize(width: 100, height: 100),
+                        radius: Constants.STICKER_CORNER_RADIUS,
+                        orientation: image.imageOrientation,
+                        maxSize: 500
+                    )
                     
-                    guard let image = image as? UIImage, let uncroppedCgImage = image.cgImage else { return }
-                    
-                    group.enter()
-                    uncroppedCgImage.faceCrop { result in
-                        defer { group.leave() }
-                        
-                        switch result {
-                        case .success(let cgImages):
-                            for cgImage in cgImages {
-                                let uiImage = Helper.resizeImage(
-                                    image: cgImage,
-                                    size: CGSize(width: 100, height: 100),
-                                    radius: Constants.STICKER_CORNER_RADIUS,
-                                    orientation: image.imageOrientation,
-                                    maxSize: 500
-                                )
-                                
-                                faceImages.append(FaceImage(id: UUID().uuidString, image: uiImage.pngData()))
-                            }
-                            return
-                        case .notFound, .failure:
-                            return
-                        }
-                    }
+                    faceImages.append(FaceImage(id: UUID().uuidString, image: uiImage.pngData()))
                 }
+                return
+            case .notFound, .failure:
+                return
             }
         }
         
         group.notify(queue: .main) {
-            self.blenderHUDOverlay.isHidden = true
-            
             if !faceImages.isEmpty {
                 let chooseCroppedImagesVC = self.factory.makeChooseCroppedImagesViewController(with: faceImages)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
             }
+            
+            self.blenderHUDOverlay.isHidden = true
         }
+        
     }
 }
 
