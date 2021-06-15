@@ -249,9 +249,18 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     
     @objc
     private func handleDeleteStickersBtnClick() {
-        viewModel.removeSelectedStickers()
-        viewModel.indexPathOfSelectedStickers.removeAll()
-        viewModel.currentViewMode = .normal
+        let alert = UIAlertController(
+            title: "",
+            message: "These selected stickers will be deleted from the main app as well as the iMessage app.",
+            preferredStyle: .actionSheet
+        )
+        alert.addAction(UIAlertAction(title: "Delete \(viewModel.indexPathOfSelectedStickers.count) Items", style: .destructive, handler: { _ in
+            self.viewModel.removeSelectedStickers()
+            self.viewModel.indexPathOfSelectedStickers.removeAll()
+            self.viewModel.currentViewMode = .normal
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc
