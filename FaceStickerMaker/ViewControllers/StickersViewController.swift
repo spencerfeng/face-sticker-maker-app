@@ -58,6 +58,16 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
         return btn
     }()
     
+    var shareStickersBtn: UIButton = {
+        let btnBgImg = UIImage(systemName: "square.and.arrow.up")
+        let btn = UIButton()
+        btn.setImage(btnBgImg, for: .normal)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
+        btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
+        btn.tintColor = .systemBlue
+        return btn
+    }()
+    
     var stickersSelectionActionBtn: UIButton = {
         let btn = UIButton()
         btn.setTitleColor(.systemBlue, for: .normal)
@@ -159,6 +169,7 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     private func setupNavigationBarItems() {
         addStickersBtn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
         deleteStickersBtn.addTarget(self, action: #selector(handleDeleteStickersBtnClick), for: .touchUpInside)
+        shareStickersBtn.addTarget(self, action: #selector(handleShareStickersBtnClick), for: .touchUpInside)
         stickersSelectionActionBtn.addTarget(self, action: #selector(handleStickersSelectionActionBtnClick), for: .touchUpInside)
         
         customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
@@ -175,13 +186,21 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     private func bindUI() {
+        watchStickersChange()
+        watchCurrentViewModeChange()
+        watchSelectedStickersChange()
+    }
+    
+    private func watchStickersChange() {
         viewModel
             .$stickers
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.stickersCollectionView.reloadData()
             }.store(in: &subscriptions)
-        
+    }
+    
+    private func watchCurrentViewModeChange() {
         viewModel
             .$currentViewMode
             .receive(on: DispatchQueue.main)
@@ -201,10 +220,10 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
                                 cell.viewModel?.toggleSelectedState()
                             }
                         }
-                        self.viewModel.indexPathOfSelectedStickers.removeAll()
+                        self.viewModel.clearAllIndexPathOfSelectedStickers()
                         
                         // set the right top navigation button
-                        self.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.addStickersBtn)
+                        self.customNavigationItem.rightBarButtonItems = [UIBarButtonItem(customView: self.addStickersBtn)]
                         
                     case .selecting:
                         self.blenderHUDOverlay.isHidden = true
@@ -213,26 +232,34 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
                         self.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
                         
                         // set the right top navigation button
-                        self.customNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.deleteStickersBtn)
+                        self.customNavigationItem.rightBarButtonItems = [
+                            UIBarButtonItem(customView: self.deleteStickersBtn),
+                            UIBarButtonItem(customView: self.shareStickersBtn)
+                        ]
                         
-                        // disable delete stickers button
-                        self.viewModel.canDeleteStickers = false
-                    
+                        // disable share and delete buttons
+                        self.deleteStickersBtn.isEnabled = false
+                        self.shareStickersBtn.isEnabled = false
+                        
                     case .blending:
                         self.blenderHUDOverlay.isHidden = false
                     }
                 }
             }.store(in: &subscriptions)
-        
+    }
+    
+    private func watchSelectedStickersChange() {
         viewModel
-            .$canDeleteStickers
+            .$indexPathOfSelectedStickers
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 if let self = self {
-                    if value {
+                    if value.count > 0 {
                         self.deleteStickersBtn.isEnabled = true
+                        self.shareStickersBtn.isEnabled = true
                     } else {
                         self.deleteStickersBtn.isEnabled = false
+                        self.shareStickersBtn.isEnabled = false
                     }
                 }
             }.store(in: &subscriptions)
@@ -256,11 +283,25 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
         )
         alert.addAction(UIAlertAction(title: "Delete \(viewModel.indexPathOfSelectedStickers.count) Items", style: .destructive, handler: { _ in
             self.viewModel.removeSelectedStickers()
-            self.viewModel.indexPathOfSelectedStickers.removeAll()
+            self.viewModel.clearAllIndexPathOfSelectedStickers()
             self.viewModel.currentViewMode = .normal
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func handleShareStickersBtnClick() {
+        let dataOfSelectedStickers = viewModel
+            .getSelectedStickers()
+            .compactMap { sticker in
+                return sticker.image
+            }
+        let activityVC = UIActivityViewController(activityItems: dataOfSelectedStickers, applicationActivities: nil)
+        activityVC.completionWithItemsHandler = { (_, _, _, _) in
+            self.viewModel.currentViewMode = .normal
+        }
+        present(activityVC, animated: true, completion: nil)
     }
     
     @objc
@@ -362,15 +403,9 @@ extension StickersViewController: UICollectionViewDelegate {
                 cell.viewModel?.toggleSelectedState()
                 
                 if viewModel.indexPathOfSelectedStickers.contains(indexPath) {
-                    viewModel.indexPathOfSelectedStickers.remove(indexPath)
+                    viewModel.removeItemFromSelectedStickers(item: indexPath)
                 } else {
-                    viewModel.indexPathOfSelectedStickers.insert(indexPath)
-                }
-                
-                if viewModel.indexPathOfSelectedStickers.count > 0 {
-                    viewModel.canDeleteStickers = true
-                } else {
-                    viewModel.canDeleteStickers = false
+                    viewModel.insertItemToSelectedStickers(item: indexPath)
                 }
             }
         }

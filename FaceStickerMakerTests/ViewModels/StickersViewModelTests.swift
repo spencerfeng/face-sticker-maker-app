@@ -43,8 +43,8 @@ class StickersViewModelTests: XCTestCase {
         sut.getStickers()
         
         // Given
-        sut.indexPathOfSelectedStickers.insert(IndexPath(row: 0, section: 0))
-        sut.indexPathOfSelectedStickers.insert(IndexPath(row: 2, section: 0))
+        sut.insertItemToSelectedStickers(item: IndexPath(row: 0, section: 0))
+        sut.insertItemToSelectedStickers(item: IndexPath(row: 2, section: 0))
         
         // When
         sut.removeSelectedStickers()

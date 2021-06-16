@@ -17,9 +17,7 @@ class StickersViewModel {
     
     @Published private(set) var stickers = [FaceImage]()
     @Published var currentViewMode = StickersViewMode.normal
-    @Published var canDeleteStickers = false
-
-    var indexPathOfSelectedStickers = Set<IndexPath>()
+    @Published private(set) var indexPathOfSelectedStickers = Set<IndexPath>()
     
     let stickerService: StickerService
     
@@ -31,14 +29,29 @@ class StickersViewModel {
         stickers = stickerService.getStickers()
     }
     
+    func clearAllIndexPathOfSelectedStickers() {
+        self.indexPathOfSelectedStickers.removeAll()
+    }
+    
+    func removeItemFromSelectedStickers(item: IndexPath) {
+        self.indexPathOfSelectedStickers.remove(item)
+    }
+    
+    func insertItemToSelectedStickers(item: IndexPath) {
+        self.indexPathOfSelectedStickers.insert(item)
+    }
+    
+    // remove selected stickers from the persistence store
     func removeSelectedStickers() {
-        let stickersToRemove = indexPathOfSelectedStickers.map { indexPath in
-            return self.stickers[indexPath.row]
-        }
-        
-        let idsOfStickersAfterRemoval = stickerService.removeStickers(stickers: stickersToRemove)
+        let idsOfStickersAfterRemoval = stickerService.removeStickers(stickers: getSelectedStickers())
         
         stickers = stickers.filter { idsOfStickersAfterRemoval.contains($0.id) }
+    }
+    
+    func getSelectedStickers() -> [FaceImage] {
+        return indexPathOfSelectedStickers.map { indexPath in
+            return self.stickers[indexPath.row]
+        }
     }
 
 }
