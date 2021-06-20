@@ -336,15 +336,34 @@ extension StickersViewController: UIImagePickerControllerDelegate {
             switch result {
             case .success(let cgImages):
                 for cgImage in cgImages {
-                    let uiImage = Helper.resizeImage(
-                        image: cgImage,
-                        size: CGSize(width: 100, height: 100),
-                        radius: Constants.STICKER_CORNER_RADIUS,
-                        orientation: image.imageOrientation,
-                        maxSize: 500
-                    )
-                    
-                    faceImages.append(FaceImage(id: UUID().uuidString, image: uiImage.pngData()))
+                    group.enter()
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        defer { group.leave() }
+                        
+                        let uiImageRepresentation = Helper.resizeImage(
+                            image: cgImage,
+                            size: CGSize(width: cgImage.width, height: cgImage.height),
+                            radius: 0,
+                            orientation: image.imageOrientation
+                        )
+                        
+                        var cgImageToUse = cgImage
+                        
+                        if let imageWithoutBg = uiImageRepresentation.removeBackground(returnResult: .finalImage),
+                           let cgImageRepresentation = imageWithoutBg.cgImage {
+                            cgImageToUse = cgImageRepresentation
+                        }
+                        
+                        let processedImage = Helper.resizeImage(
+                            image: cgImageToUse,
+                            size: CGSize(width: 100, height: 100),
+                            radius: Constants.STICKER_CORNER_RADIUS,
+                            orientation: uiImageRepresentation.imageOrientation,
+                            maxSize: 500
+                        )
+                        
+                        faceImages.append(FaceImage(id: UUID().uuidString, image: processedImage.pngData()))
+                    }
                 }
                 return
             case .notFound, .failure:

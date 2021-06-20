@@ -1,0 +1,9 @@
+#
+#  .swiftlint.yml
+#  FaceStickerMaker
+#
+#  Created by Spencer Feng on 19/6/21.
+#
+
+excluded: # paths to ignore during linting.
+  - CoreMLHelpers
