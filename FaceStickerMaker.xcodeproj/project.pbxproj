@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0D2A40267D871E00DD580B /* DeepLabV3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A3F267D871E00DD580B /* DeepLabV3.mlmodel */; };
+		9C0D2A53267D91A500DD580B /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A42267D91A500DD580B /* Array+Extensions.swift */; };
+		9C0D2A54267D91A500DD580B /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A43267D91A500DD580B /* Math.swift */; };
+		9C0D2A55267D91A500DD580B /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A44267D91A500DD580B /* UIImage+CVPixelBuffer.swift */; };
+		9C0D2A56267D91A500DD580B /* Predictions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A45267D91A500DD580B /* Predictions.swift */; };
+		9C0D2A57267D91A500DD580B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A46267D91A500DD580B /* UIImage+Extensions.swift */; };
+		9C0D2A58267D91A500DD580B /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A47267D91A500DD580B /* CGImagePropertyOrientation.swift */; };
+		9C0D2A59267D91A500DD580B /* UIImage+RawBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A48267D91A500DD580B /* UIImage+RawBytes.swift */; };
+		9C0D2A5A267D91A500DD580B /* MLMultiArray+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A49267D91A500DD580B /* MLMultiArray+Helpers.swift */; };
+		9C0D2A5B267D91A500DD580B /* MLModel+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4A267D91A500DD580B /* MLModel+Images.swift */; };
+		9C0D2A5C267D91A500DD580B /* CoreML+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4B267D91A500DD580B /* CoreML+Combine.swift */; };
+		9C0D2A5D267D91A500DD580B /* CVPixelBuffer+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4C267D91A500DD580B /* CVPixelBuffer+Create.swift */; };
+		9C0D2A5E267D91A500DD580B /* CGImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4D267D91A500DD580B /* CGImage+CVPixelBuffer.swift */; };
+		9C0D2A5F267D91A500DD580B /* NonMaxSuppression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4E267D91A500DD580B /* NonMaxSuppression.swift */; };
+		9C0D2A60267D91A500DD580B /* CGImage+RawBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A4F267D91A500DD580B /* CGImage+RawBytes.swift */; };
+		9C0D2A61267D91A500DD580B /* MLMultiArray+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A50267D91A500DD580B /* MLMultiArray+Image.swift */; };
+		9C0D2A62267D91A500DD580B /* CVPixelBuffer+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A51267D91A500DD580B /* CVPixelBuffer+Resize.swift */; };
+		9C0D2A63267D91A500DD580B /* CVPixelBuffer+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A52267D91A500DD580B /* CVPixelBuffer+Rotate.swift */; };
+		9C0D2A67267DC9D200DD580B /* UIImage+Extra+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A66267DC9D200DD580B /* UIImage+Extra+Extensions.swift */; };
+		9C0D2A69267DCA3300DD580B /* CIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D2A68267DCA3300DD580B /* CIImage+Extensions.swift */; };
+		9C0D2A6B267DDB6D00DD580B /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9C0D2A6A267DDB6D00DD580B /* .swiftlint.yml */; };
 		9C54E392262D15BF0016AFE5 /* MockStickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C54E391262D15BF0016AFE5 /* MockStickerService.swift */; };
 		9C54E3A1262D397A0016AFE5 /* stickerImg3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C54E39C262D397A0016AFE5 /* stickerImg3.png */; };
 		9C54E3A2262D397A0016AFE5 /* stickerImg5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C54E39D262D397A0016AFE5 /* stickerImg5.png */; };
@@ -100,6 +121,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9C0D2A3F267D871E00DD580B /* DeepLabV3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DeepLabV3.mlmodel; sourceTree = "<group>"; };
+		9C0D2A42267D91A500DD580B /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		9C0D2A43267D91A500DD580B /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		9C0D2A44267D91A500DD580B /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		9C0D2A45267D91A500DD580B /* Predictions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictions.swift; sourceTree = "<group>"; };
+		9C0D2A46267D91A500DD580B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		9C0D2A47267D91A500DD580B /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
+		9C0D2A48267D91A500DD580B /* UIImage+RawBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RawBytes.swift"; sourceTree = "<group>"; };
+		9C0D2A49267D91A500DD580B /* MLMultiArray+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Helpers.swift"; sourceTree = "<group>"; };
+		9C0D2A4A267D91A500DD580B /* MLModel+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLModel+Images.swift"; sourceTree = "<group>"; };
+		9C0D2A4B267D91A500DD580B /* CoreML+Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreML+Combine.swift"; sourceTree = "<group>"; };
+		9C0D2A4C267D91A500DD580B /* CVPixelBuffer+Create.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Create.swift"; sourceTree = "<group>"; };
+		9C0D2A4D267D91A500DD580B /* CGImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		9C0D2A4E267D91A500DD580B /* NonMaxSuppression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonMaxSuppression.swift; sourceTree = "<group>"; };
+		9C0D2A4F267D91A500DD580B /* CGImage+RawBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+RawBytes.swift"; sourceTree = "<group>"; };
+		9C0D2A50267D91A500DD580B /* MLMultiArray+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLMultiArray+Image.swift"; sourceTree = "<group>"; };
+		9C0D2A51267D91A500DD580B /* CVPixelBuffer+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Resize.swift"; sourceTree = "<group>"; };
+		9C0D2A52267D91A500DD580B /* CVPixelBuffer+Rotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Rotate.swift"; sourceTree = "<group>"; };
+		9C0D2A66267DC9D200DD580B /* UIImage+Extra+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extra+Extensions.swift"; sourceTree = "<group>"; };
+		9C0D2A68267DCA3300DD580B /* CIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extensions.swift"; sourceTree = "<group>"; };
+		9C0D2A6A267DDB6D00DD580B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9C54E391262D15BF0016AFE5 /* MockStickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStickerService.swift; sourceTree = "<group>"; };
 		9C54E39C262D397A0016AFE5 /* stickerImg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerImg3.png; sourceTree = "<group>"; };
 		9C54E39D262D397A0016AFE5 /* stickerImg5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerImg5.png; sourceTree = "<group>"; };
@@ -198,6 +240,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0D2A41267D91A500DD580B /* CoreMLHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C0D2A42267D91A500DD580B /* Array+Extensions.swift */,
+				9C0D2A43267D91A500DD580B /* Math.swift */,
+				9C0D2A44267D91A500DD580B /* UIImage+CVPixelBuffer.swift */,
+				9C0D2A45267D91A500DD580B /* Predictions.swift */,
+				9C0D2A46267D91A500DD580B /* UIImage+Extensions.swift */,
+				9C0D2A47267D91A500DD580B /* CGImagePropertyOrientation.swift */,
+				9C0D2A48267D91A500DD580B /* UIImage+RawBytes.swift */,
+				9C0D2A49267D91A500DD580B /* MLMultiArray+Helpers.swift */,
+				9C0D2A4A267D91A500DD580B /* MLModel+Images.swift */,
+				9C0D2A4B267D91A500DD580B /* CoreML+Combine.swift */,
+				9C0D2A4C267D91A500DD580B /* CVPixelBuffer+Create.swift */,
+				9C0D2A4D267D91A500DD580B /* CGImage+CVPixelBuffer.swift */,
+				9C0D2A4E267D91A500DD580B /* NonMaxSuppression.swift */,
+				9C0D2A4F267D91A500DD580B /* CGImage+RawBytes.swift */,
+				9C0D2A50267D91A500DD580B /* MLMultiArray+Image.swift */,
+				9C0D2A51267D91A500DD580B /* CVPixelBuffer+Resize.swift */,
+				9C0D2A52267D91A500DD580B /* CVPixelBuffer+Rotate.swift */,
+			);
+			path = CoreMLHelpers;
+			sourceTree = "<group>";
+		};
 		9C54E38F262CF8BB0016AFE5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +377,8 @@
 		9CAEA1522605547A004EEF75 /* FaceStickerMaker */ = {
 			isa = PBXGroup;
 			children = (
+				9C0D2A41267D91A500DD580B /* CoreMLHelpers */,
+				9C0D2A3F267D871E00DD580B /* DeepLabV3.mlmodel */,
 				9C6CB59226440A480072C2DF /* Shared */,
 				9CFFA59526426A88009620A7 /* AppDependencies */,
 				9C64B944262EF3C9009B5884 /* Configuration */,
@@ -333,6 +401,7 @@
 				9CAEA1612605547D004EEF75 /* Info.plist */,
 				9CAEA252260E7D63004EEF75 /* Helper.swift */,
 				9CAEA257260E8F03004EEF75 /* Constants.swift */,
+				9C0D2A6A267DDB6D00DD580B /* .swiftlint.yml */,
 			);
 			path = FaceStickerMaker;
 			sourceTree = "<group>";
@@ -389,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				9CAEA1F32608A9B3004EEF75 /* CGImage+Extensions.swift */,
+				9C0D2A66267DC9D200DD580B /* UIImage+Extra+Extensions.swift */,
+				9C0D2A68267DCA3300DD580B /* CIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -600,6 +671,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0D2A6B267DDB6D00DD580B /* .swiftlint.yml in Resources */,
 				9CAEA1602605547D004EEF75 /* LaunchScreen.storyboard in Resources */,
 				9C96B06A2626FE0300A59097 /* blender.json in Resources */,
 				9CAEA15D2605547D004EEF75 /* Assets.xcassets in Resources */,
@@ -663,34 +735,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0D2A58267D91A500DD580B /* CGImagePropertyOrientation.swift in Sources */,
 				9CAEA1CC2607FA79004EEF75 /* Router.swift in Sources */,
 				9CAEA258260E8F03004EEF75 /* Constants.swift in Sources */,
+				9C0D2A54267D91A500DD580B /* Math.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
+				9C0D2A60267D91A500DD580B /* CGImage+RawBytes.swift in Sources */,
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
 				9CAEA2A026112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift in Sources */,
 				9CAEA2C7261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift in Sources */,
 				9CAEA25D260FCBE6004EEF75 /* StickersViewModel.swift in Sources */,
+				9C0D2A5B267D91A500DD580B /* MLModel+Images.swift in Sources */,
 				9CAEA253260E7D63004EEF75 /* Helper.swift in Sources */,
 				9CAEA2A826112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift in Sources */,
+				9C0D2A62267D91A500DD580B /* CVPixelBuffer+Resize.swift in Sources */,
+				9C0D2A61267D91A500DD580B /* MLMultiArray+Image.swift in Sources */,
 				9CAEA26F260FF860004EEF75 /* AddStickersResponder.swift in Sources */,
+				9C0D2A53267D91A500DD580B /* Array+Extensions.swift in Sources */,
 				9CAEA236260C98DB004EEF75 /* SelectFaceImageToggleResponder.swift in Sources */,
 				9CAEA262260FF04E004EEF75 /* StickerCollectionViewCell.swift in Sources */,
+				9C0D2A63267D91A500DD580B /* CVPixelBuffer+Rotate.swift in Sources */,
+				9C0D2A5A267D91A500DD580B /* MLMultiArray+Helpers.swift in Sources */,
+				9C0D2A57267D91A500DD580B /* UIImage+Extensions.swift in Sources */,
+				9C0D2A40267D871E00DD580B /* DeepLabV3.mlmodel in Sources */,
 				9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */,
 				9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */,
 				9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */,
+				9C0D2A67267DC9D200DD580B /* UIImage+Extra+Extensions.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */,
 				9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */,
+				9C0D2A5F267D91A500DD580B /* NonMaxSuppression.swift in Sources */,
+				9C0D2A5E267D91A500DD580B /* CGImage+CVPixelBuffer.swift in Sources */,
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
+				9C0D2A5D267D91A500DD580B /* CVPixelBuffer+Create.swift in Sources */,
 				9CAEA24E260E7C6C004EEF75 /* StickerService.swift in Sources */,
 				9CAEA27526107DC0004EEF75 /* ViewControllerFactory.swift in Sources */,
+				9C0D2A55267D91A500DD580B /* UIImage+CVPixelBuffer.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
 				9CFFA59726426AA6009620A7 /* AppDependencyContainer.swift in Sources */,
 				9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */,
 				9CAEA1BC26074D29004EEF75 /* RoutingTransition.swift in Sources */,
+				9C0D2A59267D91A500DD580B /* UIImage+RawBytes.swift in Sources */,
+				9C0D2A56267D91A500DD580B /* Predictions.swift in Sources */,
+				9C0D2A5C267D91A500DD580B /* CoreML+Combine.swift in Sources */,
 				9C6CB59426440A7B0072C2DF /* SharedConstants.swift in Sources */,
 				9CAEA1C626075FE8004EEF75 /* Animator.swift in Sources */,
+				9C0D2A69267DCA3300DD580B /* CIImage+Extensions.swift in Sources */,
 				9CAEA21F2609A319004EEF75 /* SelectFaceImageTableViewCell.swift in Sources */,
 				9CAEA1C126074DC0004EEF75 /* RoutingModalTransition.swift in Sources */,
 			);
