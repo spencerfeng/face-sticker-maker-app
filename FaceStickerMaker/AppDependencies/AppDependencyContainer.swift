@@ -13,6 +13,10 @@ class AppDependencyContainer {
 }
 
 extension AppDependencyContainer: ViewControllerFactory {
+    func makeMainTabViewController() -> MainTabViewController {
+        return MainTabViewController(factory: self)
+    }
+    
     func makeStickersViewController() -> StickersViewController {
         return StickersViewController(viewModel: stickersVM, factory: self)
     }

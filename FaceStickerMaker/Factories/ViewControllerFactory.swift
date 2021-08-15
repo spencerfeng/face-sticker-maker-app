@@ -8,6 +8,7 @@
 import Foundation
 
 protocol ViewControllerFactory {
+    func makeMainTabViewController() -> MainTabViewController
     func makeStickersViewController() -> StickersViewController
     func makeChooseCroppedImagesViewController(with faceImages: [FaceImage]) -> ChooseCroppedImagesViewController
 }

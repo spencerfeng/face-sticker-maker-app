@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         let container = AppDependencyContainer()
-        let stickersVC = container.makeStickersViewController()
-        window?.rootViewController = stickersVC
+        let mainTabVC = container.makeMainTabViewController()
+        window?.rootViewController = mainTabVC
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
     }

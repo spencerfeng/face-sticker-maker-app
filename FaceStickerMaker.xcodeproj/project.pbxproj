@@ -41,6 +41,7 @@
 		9C6CB59526440A840072C2DF /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59326440A7B0072C2DF /* SharedConstants.swift */; };
 		9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
 		9C6CB59826440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
+		9C93A36F26C8CA31006E0810 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */; };
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
 		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
 		9C96B06A2626FE0300A59097 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C96B0692626FE0300A59097 /* blender.json */; };
@@ -153,6 +154,7 @@
 		9C64B9752630405C009B5884 /* DevStickers.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevStickers.xcconfig; sourceTree = "<group>"; };
 		9C6CB59326440A7B0072C2DF /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		9C6CB59626440AA90072C2DF /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
+		9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
 		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		9C96B06E2627086B00A59097 /* FaceStickerMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceStickerMaker.entitlements; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			children = (
 				9CAEA19D2605E448004EEF75 /* StickersViewController.swift */,
 				9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */,
+				9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9C0D2A5D267D91A500DD580B /* CVPixelBuffer+Create.swift in Sources */,
 				9CAEA24E260E7C6C004EEF75 /* StickerService.swift in Sources */,
+				9C93A36F26C8CA31006E0810 /* MainTabViewController.swift in Sources */,
 				9CAEA27526107DC0004EEF75 /* ViewControllerFactory.swift in Sources */,
 				9C0D2A55267D91A500DD580B /* UIImage+CVPixelBuffer.swift in Sources */,
 				9CAEA1562605547A004EEF75 /* SceneDelegate.swift in Sources */,
