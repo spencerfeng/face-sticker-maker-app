@@ -78,19 +78,23 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
 
       - build-and-test:
           filters:
             branches:
               only:
                 - main
+                - /^RC.*/
 
       - beta:
           requires:
             - build-and-test
           filters:
-            tags:
-              only: /^v.*/
+            branches:
+              only:
+                - /^RC.*/
 
       - prod:
           requires:
@@ -98,3 +102,5 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
