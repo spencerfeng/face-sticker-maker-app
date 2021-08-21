@@ -75,6 +75,7 @@
 		9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */; };
 		9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */; };
 		9CAEA2C7261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */; };
+		9CDAE01526D0C75600DC71F2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01426D0C75600DC71F2 /* SettingsViewController.swift */; };
 		9CFFA59726426AA6009620A7 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFA59626426AA6009620A7 /* AppDependencyContainer.swift */; };
 		9CFFA5EC264281BF009620A7 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C96B07626271A2A00A59097 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -197,6 +198,7 @@
 		9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellVMFactory.swift; sourceTree = "<group>"; };
 		9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewModelFactory.swift; sourceTree = "<group>"; };
+		9CDAE01426D0C75600DC71F2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9CFFA59626426AA6009620A7 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -425,6 +427,7 @@
 				9CAEA19D2605E448004EEF75 /* StickersViewController.swift */,
 				9CAEA20C26094200004EEF75 /* ChooseCroppedImagesViewController.swift */,
 				9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */,
+				9CDAE01426D0C75600DC71F2 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				9C0D2A5A267D91A500DD580B /* MLMultiArray+Helpers.swift in Sources */,
 				9C0D2A57267D91A500DD580B /* UIImage+Extensions.swift in Sources */,
 				9C0D2A40267D871E00DD580B /* DeepLabV3.mlmodel in Sources */,
+				9CDAE01526D0C75600DC71F2 /* SettingsViewController.swift in Sources */,
 				9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */,
 				9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */,
 				9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */,
