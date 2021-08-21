@@ -76,26 +76,25 @@ workflows:
       - hold:
           type: approval
           filters:
-            branches:
-              only: /release\/1.0.0/
+            tags:
+              only: /^v.*/
 
       - build-and-test:
           filters:
             branches:
               only:
-                - develop
-                - /release\/1.0.0/
+                - main
 
       - beta:
           requires:
             - build-and-test
           filters:
-            branches:
-              only: /release\/1.0.0/
+            tags:
+              only: /^v.*/
 
       - prod:
           requires:
             - hold
           filters:
-            branches:
-              only: /release\/1.0.0/
+            tags:
+              only: /^v.*/
