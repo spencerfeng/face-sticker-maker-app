@@ -38,7 +38,12 @@ class MainTabViewController: UITabBarController {
         home.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         home.tabBarItem.title = "Home"
         
-        viewControllers = [home]
+        let settings = factory.makeSettingsViewController()
+        settings.tabBarItem.image = UIImage(systemName: "gearshape")
+        settings.tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
+        settings.tabBarItem.title = "Settings"
+        
+        viewControllers = [home, settings]
     }
     
 }

@@ -5,7 +5,7 @@
 //  Created by Spencer Feng on 5/5/21.
 //
 
-import Foundation
+import UIKit
 
 class AppDependencyContainer {
     let stickerService = StickerServiceImpl()
@@ -23,6 +23,10 @@ extension AppDependencyContainer: ViewControllerFactory {
     
     func makeChooseCroppedImagesViewController(with faceImages: [FaceImage]) -> ChooseCroppedImagesViewController {
         return ChooseCroppedImagesViewController(faceImages: faceImages, factory: self)
+    }
+    
+    func makeSettingsViewController() -> UINavigationController {
+        return UINavigationController(rootViewController: SettingsViewController())
     }
 }
 
