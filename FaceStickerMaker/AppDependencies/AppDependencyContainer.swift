@@ -9,7 +9,9 @@ import UIKit
 
 class AppDependencyContainer {
     let stickerService = StickerServiceImpl()
+    let settingsService = SettingsServiceImpl()
     lazy var stickersVM = StickersViewModel(stickerService: stickerService)
+    lazy var transparentStickerBackgroundSettingVM = TransparentStickerBackgroundSettingViewModel(settingsService: settingsService)
 }
 
 extension AppDependencyContainer: ViewControllerFactory {
@@ -26,7 +28,7 @@ extension AppDependencyContainer: ViewControllerFactory {
     }
     
     func makeSettingsViewController() -> UINavigationController {
-        return UINavigationController(rootViewController: SettingsViewController())
+        return UINavigationController(rootViewController: SettingsViewController(factory: self))
     }
 }
 
@@ -45,5 +47,17 @@ extension AppDependencyContainer: StickersCollectionViewCellVMFactory {
 extension AppDependencyContainer: ChooseCroppedImagesViewModelFactory {
     func makeChooseCroppedImagesViewModel() -> ChooseCroppedImagesViewModel {
         return ChooseCroppedImagesViewModel(stickerService: stickerService, addStickersResponder: stickersVM)
+    }
+}
+
+extension AppDependencyContainer: SettingsViewModelFactory {
+    func makeSettingsViewModel() -> SettingsViewModel {
+        return SettingsViewModel()
+    }
+}
+
+extension AppDependencyContainer: TransparentStickerBackgroundSettingViewModelFactory {
+    func makeTransparentStickerBackgroundSettingViewModel() -> TransparentStickerBackgroundSettingViewModel {
+        return TransparentStickerBackgroundSettingViewModel(settingsService: settingsService)
     }
 }
