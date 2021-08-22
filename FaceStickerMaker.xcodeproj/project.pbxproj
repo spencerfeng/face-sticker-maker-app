@@ -76,6 +76,14 @@
 		9CAEA2BD2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */; };
 		9CAEA2C7261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */; };
 		9CDAE01526D0C75600DC71F2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01426D0C75600DC71F2 /* SettingsViewController.swift */; };
+		9CDAE01726D10B9B00DC71F2 /* TransparentStickerBackgroundSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01626D10B9B00DC71F2 /* TransparentStickerBackgroundSettingCell.swift */; };
+		9CDAE01926D1C04E00DC71F2 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01826D1C04E00DC71F2 /* SettingsService.swift */; };
+		9CDAE01B26D1C48000DC71F2 /* SettingsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01A26D1C48000DC71F2 /* SettingsServiceImpl.swift */; };
+		9CDAE01F26D1D24E00DC71F2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE01E26D1D24E00DC71F2 /* SettingsViewModel.swift */; };
+		9CDAE02526D1DBD700DC71F2 /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE02426D1DBD700DC71F2 /* SettingsViewModelFactory.swift */; };
+		9CDAE02726D1DC2300DC71F2 /* TransparentStickerBackgroundSettingViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE02626D1DC2300DC71F2 /* TransparentStickerBackgroundSettingViewModelFactory.swift */; };
+		9CDAE02926D1DCB600DC71F2 /* TransparentStickerBackgroundSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE02826D1DCB600DC71F2 /* TransparentStickerBackgroundSettingViewModel.swift */; };
+		9CDAE02D26D2184100DC71F2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAE02C26D2184100DC71F2 /* Settings.swift */; };
 		9CFFA59726426AA6009620A7 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFFA59626426AA6009620A7 /* AppDependencyContainer.swift */; };
 		9CFFA5EC264281BF009620A7 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9C96B07626271A2A00A59097 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -199,6 +207,14 @@
 		9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickersCollectionViewCellVMFactory.swift; sourceTree = "<group>"; };
 		9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesViewModelFactory.swift; sourceTree = "<group>"; };
 		9CDAE01426D0C75600DC71F2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9CDAE01626D10B9B00DC71F2 /* TransparentStickerBackgroundSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentStickerBackgroundSettingCell.swift; sourceTree = "<group>"; };
+		9CDAE01826D1C04E00DC71F2 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		9CDAE01A26D1C48000DC71F2 /* SettingsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceImpl.swift; sourceTree = "<group>"; };
+		9CDAE01E26D1D24E00DC71F2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		9CDAE02426D1DBD700DC71F2 /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
+		9CDAE02626D1DC2300DC71F2 /* TransparentStickerBackgroundSettingViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentStickerBackgroundSettingViewModelFactory.swift; sourceTree = "<group>"; };
+		9CDAE02826D1DCB600DC71F2 /* TransparentStickerBackgroundSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentStickerBackgroundSettingViewModel.swift; sourceTree = "<group>"; };
+		9CDAE02C26D2184100DC71F2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9CFFA59626426AA6009620A7 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -446,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				9CAEA2072608BC4C004EEF75 /* FaceImage.swift */,
+				9CDAE02C26D2184100DC71F2 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -457,6 +474,8 @@
 				9CAEA25C260FCBE6004EEF75 /* StickersViewModel.swift */,
 				9CAEA29F26112A9A004EEF75 /* SelectFaceImageTVCViewModel.swift */,
 				9CAEA2AF2611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift */,
+				9CDAE01E26D1D24E00DC71F2 /* SettingsViewModel.swift */,
+				9CDAE02826D1DCB600DC71F2 /* TransparentStickerBackgroundSettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -466,6 +485,7 @@
 			children = (
 				9CAEA21E2609A319004EEF75 /* SelectFaceImageTableViewCell.swift */,
 				9CAEA261260FF04E004EEF75 /* StickerCollectionViewCell.swift */,
+				9CDAE01626D10B9B00DC71F2 /* TransparentStickerBackgroundSettingCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,6 +504,8 @@
 			children = (
 				9CAEA24D260E7C6C004EEF75 /* StickerService.swift */,
 				9C96B05A2626875800A59097 /* StickerServiceImpl.swift */,
+				9CDAE01826D1C04E00DC71F2 /* SettingsService.swift */,
+				9CDAE01A26D1C48000DC71F2 /* SettingsServiceImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -495,6 +517,8 @@
 				9CAEA2A726112B2D004EEF75 /* SelectFaceImageTVCVMFactory.swift */,
 				9CAEA2BC2611CDFE004EEF75 /* StickersCollectionViewCellVMFactory.swift */,
 				9CAEA2C6261291BD004EEF75 /* ChooseCroppedImagesViewModelFactory.swift */,
+				9CDAE02426D1DBD700DC71F2 /* SettingsViewModelFactory.swift */,
+				9CDAE02626D1DC2300DC71F2 /* TransparentStickerBackgroundSettingViewModelFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -717,6 +741,7 @@
 				9CAEA258260E8F03004EEF75 /* Constants.swift in Sources */,
 				9C0D2A54267D91A500DD580B /* Math.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
+				9CDAE01B26D1C48000DC71F2 /* SettingsServiceImpl.swift in Sources */,
 				9C0D2A60267D91A500DD580B /* CGImage+RawBytes.swift in Sources */,
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,
 				9CAEA1F42608A9B3004EEF75 /* CGImage+Extensions.swift in Sources */,
@@ -730,9 +755,12 @@
 				9C0D2A61267D91A500DD580B /* MLMultiArray+Image.swift in Sources */,
 				9CAEA26F260FF860004EEF75 /* AddStickersResponder.swift in Sources */,
 				9C0D2A53267D91A500DD580B /* Array+Extensions.swift in Sources */,
+				9CDAE02D26D2184100DC71F2 /* Settings.swift in Sources */,
 				9CAEA236260C98DB004EEF75 /* SelectFaceImageToggleResponder.swift in Sources */,
 				9CAEA262260FF04E004EEF75 /* StickerCollectionViewCell.swift in Sources */,
 				9C0D2A63267D91A500DD580B /* CVPixelBuffer+Rotate.swift in Sources */,
+				9CDAE01926D1C04E00DC71F2 /* SettingsService.swift in Sources */,
+				9CDAE02926D1DCB600DC71F2 /* TransparentStickerBackgroundSettingViewModel.swift in Sources */,
 				9C0D2A5A267D91A500DD580B /* MLMultiArray+Helpers.swift in Sources */,
 				9C0D2A57267D91A500DD580B /* UIImage+Extensions.swift in Sources */,
 				9C0D2A40267D871E00DD580B /* DeepLabV3.mlmodel in Sources */,
@@ -741,10 +769,12 @@
 				9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */,
 				9CAEA2B02611BAB7004EEF75 /* StickersCollectionViewCellViewModel.swift in Sources */,
 				9C0D2A67267DC9D200DD580B /* UIImage+Extra+Extensions.swift in Sources */,
+				9CDAE02726D1DC2300DC71F2 /* TransparentStickerBackgroundSettingViewModelFactory.swift in Sources */,
 				9CAEA1542605547A004EEF75 /* AppDelegate.swift in Sources */,
 				9CAEA21326096A9B004EEF75 /* ChooseCroppedImagesViewModel.swift in Sources */,
 				9CAEA2082608BC4C004EEF75 /* FaceImage.swift in Sources */,
 				9C0D2A5F267D91A500DD580B /* NonMaxSuppression.swift in Sources */,
+				9CDAE01726D10B9B00DC71F2 /* TransparentStickerBackgroundSettingCell.swift in Sources */,
 				9C0D2A5E267D91A500DD580B /* CGImage+CVPixelBuffer.swift in Sources */,
 				9CAEA19E2605E448004EEF75 /* StickersViewController.swift in Sources */,
 				9C0D2A5D267D91A500DD580B /* CVPixelBuffer+Create.swift in Sources */,
@@ -757,6 +787,8 @@
 				9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */,
 				9C0D2A59267D91A500DD580B /* UIImage+RawBytes.swift in Sources */,
 				9C0D2A56267D91A500DD580B /* Predictions.swift in Sources */,
+				9CDAE02526D1DBD700DC71F2 /* SettingsViewModelFactory.swift in Sources */,
+				9CDAE01F26D1D24E00DC71F2 /* SettingsViewModel.swift in Sources */,
 				9C0D2A5C267D91A500DD580B /* CoreML+Combine.swift in Sources */,
 				9C6CB59426440A7B0072C2DF /* SharedConstants.swift in Sources */,
 				9C0D2A69267DCA3300DD580B /* CIImage+Extensions.swift in Sources */,
