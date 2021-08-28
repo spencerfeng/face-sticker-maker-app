@@ -23,65 +23,55 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     
     private let gridSpacing: CGFloat = 20
     
-    // UI components
-    var topNavigationBar: UINavigationBar = {
-        let navigationBar = UINavigationBar()
-        
-        navigationBar.backgroundColor = .white
-        navigationBar.isTranslucent = false
-        
-        return navigationBar
-    }()
-    
-    var customNavigationItem: UINavigationItem = {
-        return UINavigationItem()
-    }()
-    
-    var addStickersBtn: UIButton = {
+    lazy private var addStickersBtn: UIButton = {
         let btnBgImg = UIImage(systemName: "plus")
         let btn = UIButton()
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
         btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
         btn.tintColor = .systemBlue
+        btn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
         return btn
     }()
     
-    var deleteStickersBtn: UIButton = {
+    lazy private var deleteStickersBtn: UIButton = {
         let btnBgImg = UIImage(systemName: "trash")
         let btn = UIButton()
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
         btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
         btn.tintColor = .systemRed
+        btn.addTarget(self, action: #selector(handleDeleteStickersBtnClick), for: .touchUpInside)
         return btn
     }()
     
-    var shareStickersBtn: UIButton = {
+    lazy private var shareStickersBtn: UIButton = {
         let btnBgImg = UIImage(systemName: "square.and.arrow.up")
         let btn = UIButton()
         btn.setImage(btnBgImg, for: .normal)
         let configuration = UIImage.SymbolConfiguration(pointSize: 24.0, weight: .regular)
         btn.setPreferredSymbolConfiguration(configuration, forImageIn: .normal)
         btn.tintColor = .systemBlue
+        btn.addTarget(self, action: #selector(handleShareStickersBtnClick), for: .touchUpInside)
         return btn
     }()
     
-    var stickersSelectionActionBtn: UIButton = {
+    lazy private var stickersSelectionActionBtn: UIButton = {
         let btn = UIButton()
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        btn.addTarget(self, action: #selector(handleStickersSelectionActionBtnClick), for: .touchUpInside)
         return btn
     }()
     
-    var blenderHUDOverlay: UIView = {
+    private var blenderHUDOverlay: UIView = {
         let overlay = UIView(frame: .zero)
         overlay.isHidden = true
         overlay.backgroundColor = .systemBackground
         return overlay
     }()
     
-    var blenderHUD: AnimationView = {
+    private var blenderHUD: AnimationView = {
         let animationView = AnimationView()
         animationView.isHidden = false
         animationView.animation = Animation.named("blender")
@@ -92,7 +82,7 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
         return animationView
     }()
     
-    lazy var stickersCollectionView: UICollectionView = {
+    lazy private var stickersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: gridSpacing, left: gridSpacing, bottom: gridSpacing, right: gridSpacing)
         layout.minimumLineSpacing = gridSpacing
@@ -123,11 +113,8 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         
-        setupNavigationBarItems()
+        setupNavigationBar()
         setupCollectionView()
-        
-        view.addSubview(topNavigationBar)
-        topNavigationBar.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(stickersCollectionView)
         stickersCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -147,15 +134,10 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLayoutSubviews()
         
         NSLayoutConstraint.activate([
-            topNavigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topNavigationBar.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0),
-            topNavigationBar.widthAnchor.constraint(equalTo: view.widthAnchor),
-            // note: we do not need to set the height of topNavigationBar explicitly, since it has its inherent value
-            
-            stickersCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stickersCollectionView.topAnchor.constraint(equalTo: topNavigationBar.bottomAnchor),
-            stickersCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            stickersCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stickersCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            stickersCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            stickersCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            stickersCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             blenderHUDOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blenderHUDOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -170,16 +152,19 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: - Other Methods
-    private func setupNavigationBarItems() {
-        addStickersBtn.addTarget(self, action: #selector(handleAddStickersBtnClick), for: .touchUpInside)
-        deleteStickersBtn.addTarget(self, action: #selector(handleDeleteStickersBtnClick), for: .touchUpInside)
-        shareStickersBtn.addTarget(self, action: #selector(handleShareStickersBtnClick), for: .touchUpInside)
-        stickersSelectionActionBtn.addTarget(self, action: #selector(handleStickersSelectionActionBtnClick), for: .touchUpInside)
+    private func setupNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
         
-        customNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
-        customNavigationItem.title = "Stickers"
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        topNavigationBar.items = [customNavigationItem]
+        title = "Stickers"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: stickersSelectionActionBtn)
     }
     
     private func setupCollectionView() {
@@ -227,7 +212,7 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
                         self.viewModel.clearAllIndexPathOfSelectedStickers()
                         
                         // set the right top navigation button
-                        self.customNavigationItem.rightBarButtonItems = [UIBarButtonItem(customView: self.addStickersBtn)]
+                        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: self.addStickersBtn)]
                         
                     case .selecting:
                         self.blenderHUDOverlay.isHidden = true
@@ -236,7 +221,7 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
                         self.stickersSelectionActionBtn.setTitle("Cancel", for: .normal)
                         
                         // set the right top navigation button
-                        self.customNavigationItem.rightBarButtonItems = [
+                        self.navigationItem.rightBarButtonItems = [
                             UIBarButtonItem(customView: self.deleteStickersBtn),
                             UIBarButtonItem(customView: self.shareStickersBtn)
                         ]
