@@ -18,7 +18,12 @@ class ChooseCroppedImagesViewModelTests: XCTestCase {
         super.setUp()
         mockStickerService = MockStickerService()
         mockAddStickersResponder = MockAddStickersResponder()
-        sut = ChooseCroppedImagesViewModel(stickerService: mockStickerService, addStickersResponder: mockAddStickersResponder)
+        
+        sut = ChooseCroppedImagesViewModel(
+            croppedImages: mockStickerService.allStickers,
+            stickerService: mockStickerService,
+            addStickersResponder: mockAddStickersResponder
+        )
     }
     
     override func tearDown() {

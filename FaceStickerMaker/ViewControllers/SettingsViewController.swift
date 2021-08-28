@@ -8,12 +8,10 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    typealias Factory = SettingsViewModelFactory & TransparentStickerBackgroundSettingViewModelFactory
     
     // MARK: - Properties
-    private let factory: Factory
-    
     private let settingsVM: SettingsViewModel
+    private let transparentStickerBackgroundSettingViewModelFactory: () -> TransparentStickerBackgroundSettingViewModel
     
     lazy private var settingsTable: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -28,9 +26,12 @@ class SettingsViewController: UIViewController {
     }()
     
     // MARK: - Initialisers
-    init(factory: Factory) {
-        self.factory = factory
-        self.settingsVM = factory.makeSettingsViewModel()
+    init(
+        viewModel: SettingsViewModel,
+        transparentStickerBackgroundSettingViewModelFactory: @escaping () -> TransparentStickerBackgroundSettingViewModel
+    ) {
+        self.settingsVM = viewModel
+        self.transparentStickerBackgroundSettingViewModelFactory = transparentStickerBackgroundSettingViewModelFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -94,7 +95,7 @@ extension SettingsViewController: UITableViewDataSource {
                     for: indexPath) as? TransparentStickerBackgroundSettingCell
             else { fatalError("TransparentStickerBackgroundSettingCell is not found") }
             
-            let transparentStickerBackgroundSettingVM = factory.makeTransparentStickerBackgroundSettingViewModel()
+            let transparentStickerBackgroundSettingVM = transparentStickerBackgroundSettingViewModelFactory()
             cell.configureCell(viewModel: transparentStickerBackgroundSettingVM)
             transparentStickerBackgroundSettingVM.labelText = setting.label
             

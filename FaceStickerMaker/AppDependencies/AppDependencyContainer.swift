@@ -8,56 +8,101 @@
 import UIKit
 
 class AppDependencyContainer {
-    let stickerService = StickerServiceImpl()
-    let settingsService = SettingsServiceImpl()
-    lazy var stickersVM = StickersViewModel(stickerService: stickerService)
-    lazy var transparentStickerBackgroundSettingVM = TransparentStickerBackgroundSettingViewModel(settingsService: settingsService)
-}
-
-extension AppDependencyContainer: ViewControllerFactory {
-    func makeMainTabViewController() -> MainTabViewController {
-        return MainTabViewController(factory: self)
+    
+    let sharedStickerService: StickerService
+    let sharedStickersViewModel: StickersViewModel
+    
+    init() {
+        let stickerService = StickerServiceImpl()
+        
+        func makeStickersViewModel() -> StickersViewModel {
+            return StickersViewModel(stickerService: stickerService)
+        }
+        
+        self.sharedStickerService = stickerService
+        self.sharedStickersViewModel = makeStickersViewModel()
     }
+    
+    // MARK: - MainTabViewController
+    // Factories needed to create a MainTabViewController
+    
+    func makeMainTabViewController() -> MainTabViewController {
+        let stickersViewControllerFactory = {
+            return self.makeStickersViewController()
+        }
+        
+        let settingsViewControllerFactory = {
+            return self.makeSettingsViewController()
+        }
+        
+        return MainTabViewController(
+            stickersViewControllerFactory: stickersViewControllerFactory,
+            settingsViewControllerFactory: settingsViewControllerFactory
+        )
+    }
+    
+    // MARK: - StickersViewController
+    // Factories needed to create a StickersViewController
     
     func makeStickersViewController() -> StickersViewController {
-        return StickersViewController(viewModel: stickersVM, factory: self)
+        let chooseCroppedImagesViewControllerFactory = { (croppedImages: [FaceImage]) in
+            return self.makeChooseCroppedImagesViewController(croppedImages: croppedImages)
+        }
+        
+        let stickersCollectionViewCellViewModelFactory = { (sticker: FaceImage) in
+            return self.makeStickersCollectionViewCellViewModel(sticker: sticker)
+        }
+        
+        return StickersViewController(
+            viewModel: self.sharedStickersViewModel,
+            chooseCroppedImagesViewControllerFactory: chooseCroppedImagesViewControllerFactory,
+            stickersCollectionViewCellViewModelFactory: stickersCollectionViewCellViewModelFactory
+        )
     }
     
-    func makeChooseCroppedImagesViewController(with faceImages: [FaceImage]) -> ChooseCroppedImagesViewController {
-        return ChooseCroppedImagesViewController(faceImages: faceImages, factory: self)
-    }
-    
-    func makeSettingsViewController() -> UINavigationController {
-        return UINavigationController(rootViewController: SettingsViewController(factory: self))
-    }
-}
-
-extension AppDependencyContainer: SelectFaceImageTVCVMFactory {
-    func makeSelectFaceImageTVCVM(for faceImage: FaceImage, with selectFaceImageToggleResponder: SelectFaceImageToggleResponder) -> SelectFaceImageTVCViewModel {
-        return SelectFaceImageTVCViewModel(faceImage: faceImage, selectFaceImageToggleResponder: selectFaceImageToggleResponder)
-    }
-}
-
-extension AppDependencyContainer: StickersCollectionViewCellVMFactory {
-    func makeStickersCollectionViewCellVMFactory(for sticker: FaceImage) -> StickersCollectionViewCellViewModel {
+    func makeStickersCollectionViewCellViewModel(sticker: FaceImage) -> StickersCollectionViewCellViewModel {
         return StickersCollectionViewCellViewModel(sticker: sticker)
     }
-}
-
-extension AppDependencyContainer: ChooseCroppedImagesViewModelFactory {
-    func makeChooseCroppedImagesViewModel() -> ChooseCroppedImagesViewModel {
-        return ChooseCroppedImagesViewModel(stickerService: stickerService, addStickersResponder: stickersVM)
+    
+    // MARK: - ChooseCroppedImagesViewController
+    // Factories needed to create a ChooseCroppedImagesViewController
+    
+    func makeChooseCroppedImagesViewController(croppedImages: [FaceImage]) -> ChooseCroppedImagesViewController {
+        let chooseCroppedImagesDependencyContainer = ChooseCroppedImagesDependencyContainer(
+            appDependencyContainer: self,
+            croppedImages: croppedImages
+        )
+        
+        return chooseCroppedImagesDependencyContainer.makeChooseCroppedImagesViewController()
     }
-}
-
-extension AppDependencyContainer: SettingsViewModelFactory {
+    
+    // MARK: - SettingsViewController
+    // Factories needed to create a SettingsViewController
+    
+    func makeSettingsViewController() -> SettingsViewController {
+        let settingsViewModel = self.makeSettingsViewModel()
+        
+        let transparentStickerBackgroundSettingViewModelFactory = {
+            return self.makeTransparentStickerBackgroundSettingViewModel()
+        }
+        
+        return SettingsViewController(
+            viewModel: settingsViewModel,
+            transparentStickerBackgroundSettingViewModelFactory: transparentStickerBackgroundSettingViewModelFactory
+        )
+    }
+    
     func makeSettingsViewModel() -> SettingsViewModel {
         return SettingsViewModel()
     }
-}
-
-extension AppDependencyContainer: TransparentStickerBackgroundSettingViewModelFactory {
+    
+    func makeSettingsService() -> SettingsService {
+        return SettingsServiceImpl()
+    }
+    
     func makeTransparentStickerBackgroundSettingViewModel() -> TransparentStickerBackgroundSettingViewModel {
+        let settingsService = makeSettingsService()
         return TransparentStickerBackgroundSettingViewModel(settingsService: settingsService)
     }
+    
 }

@@ -9,14 +9,17 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
     
-    typealias Factory = ViewControllerFactory
-    
     // MARK: - Properties
-    private let factory: Factory
+    private let stickersViewControllerFactory: () -> StickersViewController
+    private let settingsViewControllerFactory: () -> SettingsViewController
     
     // MARK: - Initialisers
-    init(factory: Factory) {
-        self.factory = factory
+    init(
+        stickersViewControllerFactory: @escaping () -> StickersViewController,
+        settingsViewControllerFactory: @escaping () -> SettingsViewController
+    ) {
+        self.stickersViewControllerFactory = stickersViewControllerFactory
+        self.settingsViewControllerFactory = settingsViewControllerFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,12 +36,12 @@ class MainTabViewController: UITabBarController {
     
     // MARK: - Helpers
     private func configureViewControllers() {
-        let home = factory.makeStickersViewController()
+        let home = stickersViewControllerFactory()
         home.tabBarItem.image = UIImage(systemName: "house")
         home.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         home.tabBarItem.title = "Home"
         
-        let settings = factory.makeSettingsViewController()
+        let settings = settingsViewControllerFactory()
         settings.tabBarItem.image = UIImage(systemName: "gearshape")
         settings.tabBarItem.selectedImage = UIImage(systemName: "gearshape.fill")
         settings.tabBarItem.title = "Settings"
