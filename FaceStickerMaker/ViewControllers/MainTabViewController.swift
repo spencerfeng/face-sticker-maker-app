@@ -36,7 +36,7 @@ class MainTabViewController: UITabBarController {
     
     // MARK: - Helpers
     private func configureViewControllers() {
-        let home = stickersViewControllerFactory()
+        let home = UINavigationController(rootViewController: stickersViewControllerFactory())
         home.tabBarItem.image = UIImage(systemName: "house")
         home.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         home.tabBarItem.title = "Home"
