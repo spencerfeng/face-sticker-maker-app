@@ -19,10 +19,12 @@ class StickersViewModel {
     @Published var currentViewMode = StickersViewMode.normal
     @Published private(set) var indexPathOfSelectedStickers = Set<IndexPath>()
     
-    let stickerService: StickerService
+    private let stickerService: StickerService
+    private let settingsService: SettingsService
     
-    init(stickerService: StickerService) {
+    init(stickerService: StickerService, settingsService: SettingsService) {
         self.stickerService = stickerService
+        self.settingsService = settingsService
     }
     
     func getStickers() {
@@ -52,6 +54,10 @@ class StickersViewModel {
         return indexPathOfSelectedStickers.map { indexPath in
             return self.stickers[indexPath.row]
         }
+    }
+    
+    func shouldStickerHaveTransparentBackground() -> Bool {
+        return settingsService.getTransparentStickerBackgroundSetting()
     }
 
 }

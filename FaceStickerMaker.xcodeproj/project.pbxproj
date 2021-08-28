@@ -42,6 +42,7 @@
 		9C6CB59726440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
 		9C6CB59826440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
 		9C6EECED26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECEC26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift */; };
+		9C6EECEF26DA1C27007DECBF /* MockSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECEE26DA1C27007DECBF /* MockSettingsService.swift */; };
 		9C93A36F26C8CA31006E0810 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */; };
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
 		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
@@ -159,6 +160,7 @@
 		9C6CB59326440A7B0072C2DF /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
 		9C6CB59626440AA90072C2DF /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
 		9C6EECEC26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesDependencyContainer.swift; sourceTree = "<group>"; };
+		9C6EECEE26DA1C27007DECBF /* MockSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsService.swift; sourceTree = "<group>"; };
 		9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
 		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				9C54E391262D15BF0016AFE5 /* MockStickerService.swift */,
 				9C54E3B6262D41870016AFE5 /* MockAddStickersResponder.swift */,
+				9C6EECEE26DA1C27007DECBF /* MockSettingsService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				9C54E3B7262D41870016AFE5 /* MockAddStickersResponder.swift in Sources */,
 				9C54E3BC262D43820016AFE5 /* ChooseCroppedImagesViewModelTests.swift in Sources */,
 				9C54E3C4262D6D090016AFE5 /* StickersViewModelTests.swift in Sources */,
+				9C6EECEF26DA1C27007DECBF /* MockSettingsService.swift in Sources */,
 				9C54E392262D15BF0016AFE5 /* MockStickerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

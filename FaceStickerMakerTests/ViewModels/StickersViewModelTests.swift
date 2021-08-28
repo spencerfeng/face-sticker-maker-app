@@ -12,11 +12,13 @@ class StickersViewModelTests: XCTestCase {
     
     var sut: StickersViewModel!
     var mockStickerService: MockStickerService!
+    var mockSettingsService: MockSettingsService!
     
     override func setUp() {
         super.setUp()
         mockStickerService = MockStickerService()
-        sut = StickersViewModel(stickerService: mockStickerService)
+        mockSettingsService = MockSettingsService()
+        sut = StickersViewModel(stickerService: mockStickerService, settingsService: mockSettingsService)
     }
     
     override func tearDown() {
@@ -67,6 +69,14 @@ class StickersViewModelTests: XCTestCase {
         // Assert
         XCTAssertEqual(sut.stickers.count, 6)
         XCTAssertEqual(sut.stickers[0].id, "stickerImg6")
+    }
+    
+    func test_get_should_sticker_have_transparent_background_setting() {
+        // When
+        let shouldStickerHaveTransparentBackground = sut.shouldStickerHaveTransparentBackground()
+        
+        // Assert
+        XCTAssertTrue(shouldStickerHaveTransparentBackground)
     }
     
 }

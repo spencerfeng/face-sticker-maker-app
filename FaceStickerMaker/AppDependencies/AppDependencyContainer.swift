@@ -11,15 +11,21 @@ class AppDependencyContainer {
     
     let sharedStickerService: StickerService
     let sharedStickersViewModel: StickersViewModel
+    let sharedSettingsService: SettingsService
     
     init() {
         let stickerService = StickerServiceImpl()
+        let settingsService = SettingsServiceImpl()
         
         func makeStickersViewModel() -> StickersViewModel {
-            return StickersViewModel(stickerService: stickerService)
+            return StickersViewModel(
+                stickerService: stickerService,
+                settingsService: settingsService
+            )
         }
         
         self.sharedStickerService = stickerService
+        self.sharedSettingsService = settingsService
         self.sharedStickersViewModel = makeStickersViewModel()
     }
     
@@ -96,13 +102,8 @@ class AppDependencyContainer {
         return SettingsViewModel()
     }
     
-    func makeSettingsService() -> SettingsService {
-        return SettingsServiceImpl()
-    }
-    
     func makeTransparentStickerBackgroundSettingViewModel() -> TransparentStickerBackgroundSettingViewModel {
-        let settingsService = makeSettingsService()
-        return TransparentStickerBackgroundSettingViewModel(settingsService: settingsService)
+        return TransparentStickerBackgroundSettingViewModel(settingsService: self.sharedSettingsService)
     }
     
 }

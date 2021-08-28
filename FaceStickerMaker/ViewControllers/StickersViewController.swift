@@ -320,7 +320,8 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
 }
 
 extension StickersViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
         blenderHUDOverlay.isHidden = false
         picker.dismiss(animated: true, completion: nil)
         
@@ -329,6 +330,8 @@ extension StickersViewController: UIImagePickerControllerDelegate {
             blenderHUDOverlay.isHidden = true
             return
         }
+        
+        let shouldShowStickerBackground = viewModel.shouldStickerHaveTransparentBackground()
         
         let group = DispatchGroup()
         var faceImages = [FaceImage]()
@@ -353,9 +356,11 @@ extension StickersViewController: UIImagePickerControllerDelegate {
                         
                         var cgImageToUse = cgImage
                         
-                        if let imageWithoutBg = uiImageRepresentation.removeBackground(returnResult: .finalImage),
-                           let cgImageRepresentation = imageWithoutBg.cgImage {
-                            cgImageToUse = cgImageRepresentation
+                        if shouldShowStickerBackground {
+                            if let imageWithoutBg = uiImageRepresentation.removeBackground(returnResult: .finalImage),
+                               let cgImageRepresentation = imageWithoutBg.cgImage {
+                                cgImageToUse = cgImageRepresentation
+                            }
                         }
                         
                         let processedImage = Helper.resizeImage(
