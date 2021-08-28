@@ -81,12 +81,7 @@ workflows:
             branches:
               ignore: /.*/
 
-      - build-and-test:
-          filters:
-            branches:
-              only:
-                - main
-                - /^RC.*/
+      - build-and-test
 
       - beta:
           requires:
