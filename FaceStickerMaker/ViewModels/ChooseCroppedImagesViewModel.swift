@@ -9,13 +9,18 @@ import Foundation
 
 class ChooseCroppedImagesViewModel: SelectFaceImageToggleResponder {
     
-    var stickerService: StickerService
-    var addStickersResponder: AddStickersResponder
+    let croppedImages: [FaceImage]
+    private let stickerService: StickerService
+    private let addStickersResponder: AddStickersResponder
     
-    var croppedImages = [FaceImage]()
     var selectedFaceImages = [FaceImage]()
     
-    init(stickerService: StickerService, addStickersResponder: AddStickersResponder) {
+    init(
+        croppedImages: [FaceImage],
+        stickerService: StickerService,
+        addStickersResponder: AddStickersResponder
+    ) {
+        self.croppedImages = croppedImages
         self.stickerService = stickerService
         self.addStickersResponder = addStickersResponder
     }

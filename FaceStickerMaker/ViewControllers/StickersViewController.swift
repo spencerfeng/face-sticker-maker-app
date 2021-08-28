@@ -13,12 +13,11 @@ import Lottie
 
 class StickersViewController: UIViewController, UINavigationControllerDelegate {
     
-    typealias Factory = ViewControllerFactory & StickersCollectionViewCellVMFactory
-    
     // MARK: - Properties
     private let viewModel: StickersViewModel
     
-    private let factory: Factory
+    private let chooseCroppedImagesViewControllerFactory: ([FaceImage]) -> ChooseCroppedImagesViewController
+    private let stickersCollectionViewCellViewModelFactory: (FaceImage) -> StickersCollectionViewCellViewModel
     
     var subscriptions = Set<AnyCancellable>()
     
@@ -104,9 +103,14 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
     }()
     
     // MARK: - Initializers
-    init(viewModel: StickersViewModel, factory: Factory) {
+    init(
+        viewModel: StickersViewModel,
+        chooseCroppedImagesViewControllerFactory: @escaping ([FaceImage]) -> ChooseCroppedImagesViewController,
+        stickersCollectionViewCellViewModelFactory: @escaping (FaceImage) -> StickersCollectionViewCellViewModel
+    ) {
         self.viewModel = viewModel
-        self.factory = factory
+        self.chooseCroppedImagesViewControllerFactory = chooseCroppedImagesViewControllerFactory
+        self.stickersCollectionViewCellViewModelFactory = stickersCollectionViewCellViewModelFactory
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -373,7 +377,7 @@ extension StickersViewController: UIImagePickerControllerDelegate {
         
         group.notify(queue: .main) {
             if !faceImages.isEmpty {
-                let chooseCroppedImagesVC = self.factory.makeChooseCroppedImagesViewController(with: faceImages)
+                let chooseCroppedImagesVC = self.chooseCroppedImagesViewControllerFactory(faceImages)
                 self.present(chooseCroppedImagesVC, animated: true, completion: nil)
             }
             
@@ -395,7 +399,7 @@ extension StickersViewController: UICollectionViewDataSource {
         ) as? StickerCollectionViewCell
         
         guard let cell = collectionViewCell else { return UICollectionViewCell() }
-        let stickersCollectionViewCellVM = factory.makeStickersCollectionViewCellVMFactory(for: viewModel.stickers[indexPath.row])
+        let stickersCollectionViewCellVM = stickersCollectionViewCellViewModelFactory(viewModel.stickers[indexPath.row])
         cell.configureCell(viewModel: stickersCollectionViewCellVM)
         
         return cell

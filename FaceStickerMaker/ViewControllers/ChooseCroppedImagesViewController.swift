@@ -9,12 +9,10 @@ import Foundation
 import UIKit
 
 class ChooseCroppedImagesViewController: UIViewController {
-    typealias Factory = SelectFaceImageTVCVMFactory & ChooseCroppedImagesViewModelFactory
     
     // MARK: - Properties
-    var viewModel: ChooseCroppedImagesViewModel
-    
-    let factory: Factory
+    private let viewModel: ChooseCroppedImagesViewModel
+    private let selectFaceImageTVCViewModelFactory: (FaceImage) -> SelectFaceImageTVCViewModel
     
     // UI components
     var topNavigationBar: UINavigationBar = {
@@ -44,12 +42,12 @@ class ChooseCroppedImagesViewController: UIViewController {
     let tableView = UITableView()
     
     // MARK: - Initializers
-    init(faceImages: [FaceImage], factory: Factory) {
-        let viewModel = factory.makeChooseCroppedImagesViewModel()
-        viewModel.croppedImages = faceImages
+    init(
+        viewModel: ChooseCroppedImagesViewModel,
+        selectFaceImageTVCViewModelFactory: @escaping (FaceImage) -> SelectFaceImageTVCViewModel
+    ) {
         self.viewModel = viewModel
-        
-        self.factory = factory
+        self.selectFaceImageTVCViewModelFactory = selectFaceImageTVCViewModelFactory
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -132,7 +130,7 @@ extension ChooseCroppedImagesViewController: UITableViewDataSource {
             for: indexPath) as? SelectFaceImageTableViewCell
         
         guard let cell = tableCell else { return SelectFaceImageTableViewCell() }
-        let selectFaceImageTVCVM = factory.makeSelectFaceImageTVCVM(for: viewModel.croppedImages[indexPath.row], with: viewModel)
+        let selectFaceImageTVCVM = selectFaceImageTVCViewModelFactory(viewModel.croppedImages[indexPath.row])
         cell.configureCell(viewModel: selectFaceImageTVCVM)
         
         return cell
