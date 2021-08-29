@@ -222,8 +222,12 @@ class StickersViewController: UIViewController, UINavigationControllerDelegate {
                         
                         // set the right top navigation button
                         self.navigationItem.rightBarButtonItems = [
-                            UIBarButtonItem(customView: self.deleteStickersBtn),
-                            UIBarButtonItem(customView: self.shareStickersBtn)
+                            UIBarButtonItem(customView: self.deleteStickersBtn)
+                            // Disable share as image feature
+                            // TODO: plan to implement share sticker function
+                            // so that the user is able share a sticker with
+                            // another user who has this app installed
+//                            UIBarButtonItem(customView: self.shareStickersBtn)
                         ]
                         
                         // disable share and delete buttons
