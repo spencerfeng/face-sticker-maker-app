@@ -11,17 +11,25 @@ enum UserSettingType: String {
     case TransparentStickerBackground
 }
 
-class SettingsViewModel {
+struct SettingsViewModel {
     
+    var appVersionBuildInfo: String?
     let settings: [SettingsGroup]
     
-    init() {
+    init(appService: AppService) {
         let transparentStickerBackgroundSetting = Setting(
             type: UserSettingType.TransparentStickerBackground,
             label: "Transparent background"
         )
         let generalSettingsGroup = SettingsGroup(name: "Sticker", settings: [transparentStickerBackgroundSetting])
         self.settings = [generalSettingsGroup]
+        
+        let versionNumber = appService.getVersionNumber()
+        let buildNumber = appService.getBuildNumber()
+        
+        if let versionNumber = versionNumber, let buildNumber = buildNumber {
+            self.appVersionBuildInfo = "Version \(versionNumber)(\(buildNumber))"
+        }
     }
     
 }
