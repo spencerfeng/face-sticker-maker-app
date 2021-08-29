@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.backgroundColor = .systemGray6
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -105,5 +106,20 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return settingsVM.settings[section].name
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == settingsVM.settings.count - 1 {
+            if let appVersionBuildInfo = settingsVM.appVersionBuildInfo {
+                return appVersionBuildInfo
+            }
+        }
+        return nil
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        (view as? UITableViewHeaderFooterView)?.textLabel?.textAlignment = .center
     }
 }

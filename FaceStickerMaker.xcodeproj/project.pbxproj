@@ -43,6 +43,8 @@
 		9C6CB59826440AA90072C2DF /* SharedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6CB59626440AA90072C2DF /* SharedHelper.swift */; };
 		9C6EECED26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECEC26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift */; };
 		9C6EECEF26DA1C27007DECBF /* MockSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECEE26DA1C27007DECBF /* MockSettingsService.swift */; };
+		9C6EECF126DAE903007DECBF /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECF026DAE903007DECBF /* AppService.swift */; };
+		9C6EECF326DAE993007DECBF /* AppServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6EECF226DAE993007DECBF /* AppServiceImpl.swift */; };
 		9C93A36F26C8CA31006E0810 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */; };
 		9C96B05B2626875800A59097 /* StickerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C96B05A2626875800A59097 /* StickerServiceImpl.swift */; };
 		9C96B0642626FCDC00A59097 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9C96B0632626FCDC00A59097 /* Lottie */; };
@@ -161,6 +163,8 @@
 		9C6CB59626440AA90072C2DF /* SharedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelper.swift; sourceTree = "<group>"; };
 		9C6EECEC26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCroppedImagesDependencyContainer.swift; sourceTree = "<group>"; };
 		9C6EECEE26DA1C27007DECBF /* MockSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsService.swift; sourceTree = "<group>"; };
+		9C6EECF026DAE903007DECBF /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		9C6EECF226DAE993007DECBF /* AppServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceImpl.swift; sourceTree = "<group>"; };
 		9C93A36E26C8CA31006E0810 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9C96B05A2626875800A59097 /* StickerServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerServiceImpl.swift; sourceTree = "<group>"; };
 		9C96B0692626FE0300A59097 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
@@ -498,6 +502,8 @@
 				9C96B05A2626875800A59097 /* StickerServiceImpl.swift */,
 				9CDAE01826D1C04E00DC71F2 /* SettingsService.swift */,
 				9CDAE01A26D1C48000DC71F2 /* SettingsServiceImpl.swift */,
+				9C6EECF026DAE903007DECBF /* AppService.swift */,
+				9C6EECF226DAE993007DECBF /* AppServiceImpl.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -722,6 +728,8 @@
 				9C0D2A54267D91A500DD580B /* Math.swift in Sources */,
 				9C6EECED26D9C8E8007DECBF /* ChooseCroppedImagesDependencyContainer.swift in Sources */,
 				9CAEA1582605547A004EEF75 /* ViewController.swift in Sources */,
+				9C6EECF326DAE993007DECBF /* AppServiceImpl.swift in Sources */,
+				9C6EECF126DAE903007DECBF /* AppService.swift in Sources */,
 				9CDAE01B26D1C48000DC71F2 /* SettingsServiceImpl.swift in Sources */,
 				9C0D2A60267D91A500DD580B /* CGImage+RawBytes.swift in Sources */,
 				9CAEA20D26094200004EEF75 /* ChooseCroppedImagesViewController.swift in Sources */,

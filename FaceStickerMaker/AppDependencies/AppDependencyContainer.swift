@@ -99,7 +99,12 @@ class AppDependencyContainer {
     }
     
     func makeSettingsViewModel() -> SettingsViewModel {
-        return SettingsViewModel()
+        let appService = makeAppService()
+        return SettingsViewModel(appService: appService)
+    }
+    
+    func makeAppService() -> AppService {
+        return AppServiceImpl()
     }
     
     func makeTransparentStickerBackgroundSettingViewModel() -> TransparentStickerBackgroundSettingViewModel {
