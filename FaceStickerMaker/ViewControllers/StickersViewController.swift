@@ -336,11 +336,13 @@ extension StickersViewController: UIImagePickerControllerDelegate {
                     DispatchQueue.global(qos: .userInitiated).async {
                         defer { group.leave() }
                         
+                        var orientation = image.imageOrientation
+                        
                         let uiImageRepresentation = Helper.resizeImage(
                             image: cgImage,
                             size: CGSize(width: cgImage.width, height: cgImage.height),
                             radius: 0,
-                            orientation: image.imageOrientation
+                            orientation: orientation
                         )
                         
                         var cgImageToUse = cgImage
@@ -349,6 +351,7 @@ extension StickersViewController: UIImagePickerControllerDelegate {
                             if let imageWithoutBg = uiImageRepresentation.removeBackground(returnResult: .finalImage),
                                let cgImageRepresentation = imageWithoutBg.cgImage {
                                 cgImageToUse = cgImageRepresentation
+                                orientation = uiImageRepresentation.imageOrientation
                             }
                         }
                         
@@ -356,7 +359,7 @@ extension StickersViewController: UIImagePickerControllerDelegate {
                             image: cgImageToUse,
                             size: CGSize(width: 100, height: 100),
                             radius: Constants.STICKER_CORNER_RADIUS,
-                            orientation: uiImageRepresentation.imageOrientation,
+                            orientation: orientation,
                             maxSize: 500
                         )
                         
