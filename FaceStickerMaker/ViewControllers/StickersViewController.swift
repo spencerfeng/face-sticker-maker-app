@@ -320,7 +320,7 @@ extension StickersViewController: UIImagePickerControllerDelegate {
             return
         }
         
-        let shouldShowStickerBackground = viewModel.shouldStickerHaveTransparentBackground()
+        let isTransparentBackgroundEnabled = viewModel.shouldStickerHaveTransparentBackground()
         
         let group = DispatchGroup()
         var faceImages = [FaceImage]()
@@ -347,7 +347,7 @@ extension StickersViewController: UIImagePickerControllerDelegate {
                         
                         var cgImageToUse = cgImage
                         
-                        if shouldShowStickerBackground {
+                        if isTransparentBackgroundEnabled {
                             if let imageWithoutBg = uiImageRepresentation.removeBackground(returnResult: .finalImage),
                                let cgImageRepresentation = imageWithoutBg.cgImage {
                                 cgImageToUse = cgImageRepresentation
